@@ -1,3 +1,4 @@
+function()
 // sprite_buffers = object end
 
 // add_sprite_buffer = function(name, w, h)
@@ -38,7 +39,6 @@ SpriteObj = class
     local y_shift = proj_h * this.shift
     local pos_x = this.screen_x - this.proj_half_w 
     local pos_y = HALF_H - floor(proj_h/2) + y_shift     
-    // printc([pos_x, pos_y])
     
     // color component
     local ccp = 1 - (1 / (1 + this.norm_dist ^ 9 * 0.0000010))
@@ -59,7 +59,6 @@ SpriteObj = class
       depth = this.norm_dist
       proj_h = proj_h
       texture = this.buffer
-      // offset = offset
       color = color
       tex_coords = tex_coords
       scr_coords = scr_coords
@@ -81,8 +80,6 @@ SpriteObj = class
       delta += PI*2
     end
     
-    // ray_angle = atan( (ray*SCALE-HALF_W) / SCR_DIST ) + player.rot 
-    // DELTA_ANGLE = FOV / NUM_RAYS
     local delta_rays = delta / DELTA_ANGLE
     this.screen_x = (HALF_NUM_RAYS + delta_rays) * SCALE 
     
@@ -97,6 +94,83 @@ SpriteObj = class
   
   update = function()
     this.get_sprite()
-    
   end
 end
+
+
+// --- Enemies ---
+
+Enemy = class extends SpriteObj
+  constructor = function(name, x, y)
+    super(name, x, y, 1, 0.0)
+    this.is_enemy = true
+    this.health = 30
+    this.max_health = 30
+    this.speed = 0.9
+    this.state = "chase"       // "chase", "attack", "dead"
+    this.attack_cooldown = 0
+    this.attack_damage = 10
+    this.attack_range = 1.0
+    this.chase_range = 8
+  end
+
+  take_damage = function(amount)
+    if this.state == "dead" then return end
+    this.health -= amount
+    if this.health <= 0 then
+      this.health = 0
+      this.state = "dead"
+      this.speed = 0
+    end
+  end
+
+  chase_player = function()
+    local dx = player.x - this.x
+    local dy = player.y - this.y
+    local dist = sqrt(dx*dx + dy*dy)
+
+    if dist > this.chase_range then return end
+
+    if dist < this.attack_range then
+      this.state = "attack"
+      return
+    end
+
+    local step = this.speed * system.dt
+    local nx = (dx/dist) * step
+    local ny = (dy/dist) * step
+
+    if not map.is_wall(this.x+nx, this.y) then this.x += nx end
+    if not map.is_wall(this.x, this.y+ny) then this.y += ny end
+  end
+
+  attack_player = function()
+    this.attack_cooldown -= system.dt
+
+    local dx = player.x - this.x
+    local dy = player.y - this.y
+    local dist = sqrt(dx*dx + dy*dy)
+
+    if dist > this.attack_range * 1.3 then
+      this.state = "chase"
+      return
+    end
+
+    if this.attack_cooldown <= 0 then
+      audio.playSound("npc_attack")
+      player.take_damage(this.attack_damage)
+      this.attack_cooldown = 1.0
+    end
+  end
+
+  update = function()
+    if this.state == "chase" then
+      this.chase_player()
+    elsif this.state == "attack" then
+      this.attack_player()
+    end
+
+    super.update()   // still handles the sprite screen-projection math
+  end
+end
+end()
