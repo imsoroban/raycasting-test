@@ -1,0 +1,3919 @@
+<!DOCTYPE html><html><head><title>THE LAST CHANCE (RAYCASTING PREWIEW 1.1)</title><meta http-equiv="content-type" content="text/html; charset=UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui=1"><meta charset="UTF-8"><meta name="mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="description" content=""><link rel="manifest" href="manifest.json"><link rel="icon" type="image/png" href="icon64.png"><link rel="apple-touch-icon" sizes="180x180" href="icon180.png"><link rel="icon" type="image/png" sizes="32x32" href="icon32.png"><link rel="icon" type="image/png" sizes="16x16" href="icon16.png"><style>html,body {
+  margin: 0;
+  padding: 0;
+  background-color: #000;
+  overflow:hidden;
+  font-family: Verdana;
+}
+.noselect {
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+#canvaswrapper {
+  text-align: center ;
+}
+</style><style>@font-face { font-family: "AESystematic" ; src: url("fonts/AESystematic.ttf") format("truetype"); }</style><style>@font-face { font-family: "Alkhemikal" ; src: url("fonts/Alkhemikal.ttf") format("truetype"); }</style><style>@font-face { font-family: "AlphaBeta" ; src: url("fonts/AlphaBeta.ttf") format("truetype"); }</style><style>@font-face { font-family: "Arpegius" ; src: url("fonts/Arpegius.ttf") format("truetype"); }</style><style>@font-face { font-family: "Awesome" ; src: url("fonts/Awesome.ttf") format("truetype"); }</style><style>@font-face { font-family: "BitCell" ; src: url("fonts/BitCell.ttf") format("truetype"); }</style><style>@font-face { font-family: "Blocktopia" ; src: url("fonts/Blocktopia.ttf") format("truetype"); }</style><style>@font-face { font-family: "Comicoro" ; src: url("fonts/Comicoro.ttf") format("truetype"); }</style><style>@font-face { font-family: "Commodore64" ; src: url("fonts/Commodore64.ttf") format("truetype"); }</style><style>@font-face { font-family: "DigitalDisco" ; src: url("fonts/DigitalDisco.ttf") format("truetype"); }</style><style>@font-face { font-family: "Edunline" ; src: url("fonts/Edunline.ttf") format("truetype"); }</style><style>@font-face { font-family: "EnchantedSword" ; src: url("fonts/EnchantedSword.ttf") format("truetype"); }</style><style>@font-face { font-family: "EnterCommand" ; src: url("fonts/EnterCommand.ttf") format("truetype"); }</style><style>@font-face { font-family: "Euxoi" ; src: url("fonts/Euxoi.ttf") format("truetype"); }</style><style>@font-face { font-family: "FixedBold" ; src: url("fonts/FixedBold.ttf") format("truetype"); }</style><style>@font-face { font-family: "GenericMobileSystem" ; src: url("fonts/GenericMobileSystem.ttf") format("truetype"); }</style><style>@font-face { font-family: "GrapeSoda" ; src: url("fonts/GrapeSoda.ttf") format("truetype"); }</style><style>@font-face { font-family: "JupiterCrash" ; src: url("fonts/JupiterCrash.ttf") format("truetype"); }</style><style>@font-face { font-family: "Kapel" ; src: url("fonts/Kapel.ttf") format("truetype"); }</style><style>@font-face { font-family: "KiwiSoda" ; src: url("fonts/KiwiSoda.ttf") format("truetype"); }</style><style>@font-face { font-family: "Litebulb8bit" ; src: url("fonts/Litebulb8bit.ttf") format("truetype"); }</style><style>@font-face { font-family: "LycheeSoda" ; src: url("fonts/LycheeSoda.ttf") format("truetype"); }</style><style>@font-face { font-family: "MisterPixel" ; src: url("fonts/MisterPixel.ttf") format("truetype"); }</style><style>@font-face { font-family: "ModernDos" ; src: url("fonts/ModernDos.ttf") format("truetype"); }</style><style>@font-face { font-family: "NokiaCellPhone" ; src: url("fonts/NokiaCellPhone.ttf") format("truetype"); }</style><style>@font-face { font-family: "PearSoda" ; src: url("fonts/PearSoda.ttf") format("truetype"); }</style><style>@font-face { font-family: "PixAntiqua" ; src: url("fonts/PixAntiqua.ttf") format("truetype"); }</style><style>@font-face { font-family: "PixChicago" ; src: url("fonts/PixChicago.ttf") format("truetype"); }</style><style>@font-face { font-family: "PixelArial" ; src: url("fonts/PixelArial.ttf") format("truetype"); }</style><style>@font-face { font-family: "PixelOperator" ; src: url("fonts/PixelOperator.ttf") format("truetype"); }</style><style>@font-face { font-family: "Pixellari" ; src: url("fonts/Pixellari.ttf") format("truetype"); }</style><style>@font-face { font-family: "Pixolde" ; src: url("fonts/Pixolde.ttf") format("truetype"); }</style><style>@font-face { font-family: "PlanetaryContact" ; src: url("fonts/PlanetaryContact.ttf") format("truetype"); }</style><style>@font-face { font-family: "PressStart2P" ; src: url("fonts/PressStart2P.ttf") format("truetype"); }</style><style>@font-face { font-family: "RainyHearts" ; src: url("fonts/RainyHearts.ttf") format("truetype"); }</style><style>@font-face { font-family: "RetroGaming" ; src: url("fonts/RetroGaming.ttf") format("truetype"); }</style><style>@font-face { font-family: "Revolute" ; src: url("fonts/Revolute.ttf") format("truetype"); }</style><style>@font-face { font-family: "Romulus" ; src: url("fonts/Romulus.ttf") format("truetype"); }</style><style>@font-face { font-family: "Scriptorium" ; src: url("fonts/Scriptorium.ttf") format("truetype"); }</style><style>@font-face { font-family: "Squarewave" ; src: url("fonts/Squarewave.ttf") format("truetype"); }</style><style>@font-face { font-family: "Thixel" ; src: url("fonts/Thixel.ttf") format("truetype"); }</style><style>@font-face { font-family: "Unbalanced" ; src: url("fonts/Unbalanced.ttf") format("truetype"); }</style><style>@font-face { font-family: "UpheavalPro" ; src: url("fonts/UpheavalPro.ttf") format("truetype"); }</style><style>@font-face { font-family: "VeniceClassic" ; src: url("fonts/VeniceClassic.ttf") format("truetype"); }</style><style>@font-face { font-family: "ZXSpectrum" ; src: url("fonts/ZXSpectrum.ttf") format("truetype"); }</style><style>@font-face { font-family: "Zepto" ; src: url("fonts/Zepto.ttf") format("truetype"); }</style><script>window.fonts = ["AESystematic","Alkhemikal","AlphaBeta","Arpegius","Awesome","BitCell","Blocktopia","Comicoro","Commodore64","DigitalDisco","Edunline","EnchantedSword","EnterCommand","Euxoi","FixedBold","GenericMobileSystem","GrapeSoda","JupiterCrash","Kapel","KiwiSoda","Litebulb8bit","LycheeSoda","MisterPixel","ModernDos","NokiaCellPhone","PearSoda","PixAntiqua","PixChicago","PixelArial","PixelOperator","Pixellari","Pixolde","PlanetaryContact","PressStart2P","RainyHearts","RetroGaming","Revolute","Romulus","Scriptorium","Squarewave","Thixel","Unbalanced","UpheavalPro","VeniceClassic","ZXSpectrum","Zepto"]</script></head><body class="noselect custom-cursor" oncontextmenu="return false;"><div id="canvaswrapper"></div><script type="text/javascript">var resources = {"images":[{"file":"gui-shotgun.png","version":66,"size":28441,"properties":{"frames":6,"fps":6}},{"file":"gui-sprite2.png","version":16,"size":887,"properties":{"frames":1,"fps":5}},{"file":"icon.png","version":85,"size":2484,"properties":{"frames":1,"fps":5}},{"file":"poster.png","version":4,"size":51568,"properties":{"frames":1,"fps":5}},{"file":"sky-blue_sky.png","version":6,"size":1013,"properties":{"frames":1,"fps":5}},{"file":"sky-red_sky.png","version":5,"size":859,"properties":{"frames":1,"fps":5}},{"file":"specials-exit.png","version":176,"size":516,"properties":{"frames":1,"fps":5}},{"file":"specials-spawn.png","version":26,"size":1603,"properties":{"frames":1,"fps":5}},{"file":"specials-sprite2.png","version":12,"size":498,"properties":{"frames":1,"fps":5}},{"file":"sprites-anim_candle.png","version":15,"size":487,"properties":{"frames":1,"fps":10}},{"file":"sprites-candle.png","version":39,"size":530,"properties":{"frames":1,"fps":5}},{"file":"sprites-exit.png","version":164,"size":319,"properties":{"frames":1,"fps":5}},{"file":"tiles-bricks32.png","version":233,"size":1019,"properties":{"frames":1,"fps":5}},{"file":"tiles-bricks64.png","version":258,"size":2842,"properties":{"frames":1,"fps":5}},{"file":"tiles-ceiling.png","version":38,"size":1769,"properties":{"frames":1,"fps":5}},{"file":"tiles-download.png","version":1,"size":6061,"properties":{}},{"file":"tiles-error.png","version":140,"size":824,"properties":{"frames":1,"fps":5}},{"file":"tiles-forest32.png","version":179,"size":78835,"properties":{"frames":1,"fps":5}},{"file":"tiles-images.png","version":2,"size":455,"properties":{"frames":1,"fps":5}},{"file":"tiles-images3.png","version":1,"size":28685,"properties":{}},{"file":"tiles-test32.png","version":93,"size":1538,"properties":{"frames":1,"fps":5}},{"file":"tiles-test64.png","version":79,"size":3062,"properties":{"frames":1,"fps":5}},{"file":"tiles-tileset.png","version":57,"size":11800,"properties":{"frames":1,"fps":5}},{"file":"tiles-wood32.png","version":96,"size":455,"properties":{"frames":1,"fps":5}},{"file":"tiles-wood64.png","version":23,"size":455,"properties":{"frames":1,"fps":5}},{"file":"tiles-wood64_bak1.png","version":3,"size":455,"properties":{"frames":1,"fps":5}}],"assets":[],"maps":{"map1":"{\"width\":10,\"height\":10,\"block_width\":32,\"block_height\":32,\"sprites\":[0,\"sky-blue_sky\",\"tiles-wood64:0,0\",\"tiles-bricks64:0,0\",\"sprites-candle\",\"specials-spawn:0,0\",\"tiles-test64:0,0\",\"sprites-anim_candle\",\"tiles-forest32\",\"tiles-ceiling\"],\"data\":[1,2,2,2,2,3,3,3,3,3,2,0,0,0,0,0,0,0,0,3,2,0,4,0,5,6,0,4,0,3,2,0,0,0,0,0,0,0,0,3,2,0,6,0,0,7,0,0,0,3,8,0,0,0,7,0,0,6,0,9,8,0,0,0,0,0,0,0,0,9,8,0,4,0,6,0,0,4,0,9,8,0,0,0,0,0,0,0,0,9,8,8,8,8,8,9,9,9,9,9]}","map2":"{\"width\":30,\"height\":30,\"block_width\":32,\"block_height\":32,\"sprites\":[0,\"sky-red_sky\",\"tiles-bricks64:0,0\",\"sprites-exit\",\"tiles-bricks32\",\"tiles-wood64:0,0\",\"sprites-anim_candle\",\"sprites-candle\",\"specials-spawn:0,1\",\"tiles-test64:0,0\"],\"data\":[1,2,2,3,2,2,2,3,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,0,0,0,0,0,0,4,0,0,0,0,2,5,0,0,5,0,0,0,0,0,0,0,0,0,0,0,0,0,2,0,0,0,0,0,0,4,0,0,0,0,2,6,0,0,0,0,0,0,0,0,5,5,5,5,5,0,0,0,2,0,0,0,0,0,0,4,0,0,0,0,2,0,0,0,5,0,0,0,0,0,5,0,0,0,5,0,0,0,2,0,0,0,0,0,0,4,2,2,0,2,2,5,5,5,5,0,0,0,0,0,5,0,6,0,5,0,0,0,2,0,0,0,0,0,0,4,0,0,0,0,2,0,0,0,0,0,0,0,0,0,5,0,0,0,5,2,0,2,2,0,0,0,0,0,0,4,0,0,0,0,2,0,0,0,0,0,0,2,0,2,5,5,0,5,5,6,0,6,2,0,0,0,0,0,0,2,0,0,0,0,2,5,7,0,0,0,5,2,0,0,0,0,0,0,0,0,8,0,3,0,0,0,0,0,0,2,2,0,2,2,2,2,2,2,2,2,2,2,0,0,0,0,0,0,0,0,0,0,2,0,0,0,0,0,0,2,0,0,0,0,0,0,0,0,0,0,0,0,0,7,5,5,0,5,5,6,0,6,2,0,0,0,0,0,0,2,2,2,0,2,2,2,2,0,2,2,2,2,0,2,5,0,0,0,5,2,0,2,2,0,0,0,0,0,0,2,0,0,0,0,2,0,0,0,0,2,0,0,0,0,5,0,6,0,5,0,0,0,2,0,0,0,0,0,0,2,0,0,0,0,2,0,0,0,0,2,0,0,0,0,5,0,0,0,5,0,0,0,2,0,0,0,0,0,0,2,0,0,0,0,2,0,0,0,0,2,0,0,0,0,5,5,5,5,5,0,0,0,2,0,0,0,0,0,0,2,0,0,0,0,2,0,0,0,0,2,0,0,0,0,0,0,0,0,0,0,0,0,2,0,0,0,0,0,0,2,3,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,9]}","map3":"{\"width\":30,\"height\":30,\"block_width\":32,\"block_height\":32,\"sprites\":[0,\"tiles-forest32\",\"tiles-bricks64:0,0\",\"sprites-exit\",\"specials-spawn:0,0\",\"sprites-anim_candle\",\"tiles-wood64:0,0\",\"tiles-ceiling\"],\"data\":[0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,0,0,0,0,0,0,0,0,0,1,1,1,1,1,1,0,0,0,0,0,1,1,1,1,1,1,1,1,1,1,0,0,0,0,1,1,1,1,1,1,0,0,0,0,0,1,1,0,0,0,0,1,1,1,1,1,1,1,1,0,0,0,1,1,1,1,1,1,1,0,0,0,0,0,0,0,1,1,0,0,0,0,1,1,1,1,1,1,1,0,0,1,1,1,1,1,1,1,0,0,2,2,3,2,2,0,1,1,1,0,0,0,1,1,1,1,1,1,1,0,0,1,1,1,1,1,1,1,0,0,2,0,0,0,2,0,1,1,1,1,0,0,1,1,1,1,1,1,1,0,0,1,1,1,1,1,1,0,0,0,2,0,4,0,2,0,0,1,1,1,0,0,1,1,1,1,1,1,1,0,0,1,1,1,1,1,1,0,0,0,2,0,0,0,2,0,0,1,1,1,0,0,1,1,1,1,1,1,1,0,0,1,1,1,1,1,0,0,0,0,2,2,0,2,2,0,1,1,1,1,0,0,1,1,1,1,1,1,1,0,0,0,1,1,1,0,0,0,0,0,0,5,0,5,0,0,1,1,1,1,0,0,0,1,1,1,1,1,1,1,0,0,0,0,0,0,0,1,1,1,0,0,0,0,0,1,1,1,1,0,0,0,1,1,1,1,1,1,1,1,1,0,5,1,1,1,1,1,1,1,1,1,0,0,1,1,1,1,0,0,0,0,1,1,1,1,1,1,0,1,1,0,1,1,1,1,1,1,1,1,1,0,0,1,1,1,1,0,0,0,0,1,1,1,1,1,1,1,0,1,1,0,1,1,1,1,1,1,1,1,1,0,0,1,1,1,0,0,0,1,1,1,1,1,1,1,1,1,0,1,1,0,0,1,1,1,1,1,1,0,0,0,1,1,1,0,0,0,0,1,1,1,1,1,1,1,1,1,0,0,1,0,0,1,1,1,1,0,0,0,0,0,1,0,1,0,0,0,1,1,1,1,1,1,1,1,1,1,0,0,1,1,0,0,1,1,1,0,0,5,0,5,1,0,1,0,0,0,1,1,1,1,1,1,1,1,1,1,0,0,1,1,1,0,0,0,0,0,6,6,0,6,6,0,1,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0,0,0,6,0,0,0,6,0,1,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,0,0,0,0,1,1,0,0,6,0,0,0,6,0,1,1,0,0,0,1,1,1,1,1,1,1,1,1,1,0,0,0,0,0,0,1,1,0,6,6,6,6,6,0,0,1,1,0,0,1,1,1,1,1,1,1,1,1,1,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,1,1,1,0,0,0,1,1,1,1,1,1,1,1,6,6,6,6,6,6,6,0,1,1,1,0,0,0,1,1,1,1,1,0,0,0,0,1,1,1,1,1,1,1,6,0,0,0,0,0,6,0,1,1,1,1,1,1,1,1,1,1,1,0,0,0,0,0,1,1,1,1,1,1,6,0,0,0,0,0,6,5,0,0,1,1,1,1,0,0,0,0,0,0,0,0,0,0,0,1,1,1,1,1,3,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,5,0,0,3,1,1,1,1,6,0,0,0,0,0,6,5,0,0,0,0,0,0,0,0,1,1,1,1,0,0,0,0,1,1,1,1,1,1,6,0,0,0,0,0,6,1,1,0,0,0,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,6,6,6,6,6,6,6,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,7]}","test":"{\"width\":10,\"height\":10,\"block_width\":32,\"block_height\":32,\"sprites\":[0,\"sky-blue_sky\",\"tiles-wood64:0,0\",\"tiles-bricks64:0,0\",\"sprites-candle\",\"specials-spawn:0,0\",\"tiles-test64:0,0\",\"sprites-anim_candle\",\"tiles-forest32\",\"tiles-ceiling\"],\"data\":[1,2,2,2,2,3,3,3,3,3,2,0,0,0,0,0,0,0,0,3,2,0,4,0,5,6,0,4,0,3,2,0,0,0,0,0,0,0,0,3,2,0,6,0,0,7,0,0,0,3,8,0,0,0,7,0,0,6,0,9,8,0,0,0,0,0,0,0,0,9,8,0,4,0,6,0,0,4,0,9,8,0,0,0,0,0,0,0,0,9,8,8,8,8,8,0,0,0,0,9]}"},"sounds":[{"file":"npc_attack.wav","version":1,"size":6268,"properties":{}},{"file":"shotgun.wav","version":1,"size":215354,"properties":{}}],"music":[]};
+var graphics = "M1";
+
+</script><script type="text/javascript">var orientation = 'any' ;
+var aspect = 'free' ;
+var ms_libs = [] ;
+window.skip_service_worker = true;
+window.exported_project = true;
+window.ms_use_server = false ;
+</script><script src="compiler.js"></script><script src="parser.js"></script><script src="processor.js"></script><script src="program.js"></script><script src="routine.js"></script><script src="runner.js"></script><script src="token.js"></script><script src="tokenizer.js"></script><script src="transpiler.js"></script><script src="microengine.js"></script></body><script type="text/javascript">//
+//
+// The game is started with the code below.
+// Once you have received the "started" signal (see below),
+// you can do the following:
+// 1) Inject functions or objects into the global context of the microStudio engine, example:
+//
+//   window.player.setGlobal("special_callback",function(x) { console.info(x) }) ;
+//   // Your microScript code can now call the "special_callback" function
+//
+// 2) Call microScript global functions from your JavaScript code, example:
+//
+//   window.player.call("call_me_from_javascript",[10,1000]) ;
+//   // arguments to the function call are provided as an array
+//
+// 3) Run a microScript code snippet from your JavaScript code, example:
+//
+//   window.player.exec("player.position_x = 50",function(result) { console.log(result) ; }) ;
+//
+
+window.addEventListener("load",function() {
+  window.player = new Player(function(event) {
+    if (event.name == "started") {
+      // signal that the game is started
+    }
+    else if (event.name == "log") {
+      // console.info(event.data) ;
+    }
+  }) ;
+  document.body.focus() ;
+}) ;
+
+</script><script id="code" type="text/x-microscript">
+
+
+// file: floor_casting.ms
+function()
+
+init_floor_casting = function()
+  local tex_w = sprites[map.floor].width
+  local tex_h = sprites[map.floor].height
+  local floor_texture = sprites[map.floor].frames[0]
+  
+  floor_buffer = List.new_2d(tex_w, tex_h, 0)
+  
+  for j=0 to tex_h-1 by 1
+    for i=0 to tex_w-1 by 1
+      local c = floor_texture.getRGB(i, j)
+      floor_buffer[j][i] = [c.R, c.G, c.B]
+    end
+  end
+  
+  // every 250 milliseconds do
+  //   do_floor_ceil_casting(img_buffer)
+  // end
+end
+
+
+
+do_floor_ceil_casting = function(draw_target)
+  // choose texture and draw the pixel
+  // local floor_texture = sprites["tiles/ceiling"].frames[0]
+  // local floor_texture = sprites[map.floor].frames[0]
+  local floor_texture = map.floor
+  
+  debug.print("! drawing floor")
+  local floor_buf = floor_buffer
+  // local ceiling_texture = sprites["tiles/ceiling"].frames[0]
+  
+  // print(floor_texture)//.getRGB(0, 0))
+  
+  
+  // local ftex = new Image(floor_texture.width, floor_texture.height)
+  // local ctex = new Image(ceiling_texture.width, ceiling_texture.height)
+  
+  // local ray_dir_x1 = dirX - SCR_DIST;
+  // local ray_dir_y1 = dirY - SCR_DIST;
+  // local ray_dir_x2 = dirX + SCR_DIST;
+  // local ray_dir_y2 = dirY + SCR_DIST;
+  
+  local ray_dir_x1 = sin(player.rot) - SCR_DIST
+  local ray_dir_y1 = cos(player.rot) - SCR_DIST
+  local ray_dir_x2 = sin(player.rot) + SCR_DIST
+  local ray_dir_y2 = cos(player.rot) + SCR_DIST
+  
+  local color = 0
+  
+  // print("gonna loop")
+  for y=RH/2 to RH-1 by 1
+    // print("loop y: " + y)
+    // rayDir for leftmost ray (x = 0) and rightmost ray (x = w)
+    
+   
+
+    // Current y position compared to the center of the screen (the horizon)
+    local p = y-HALF_H
+
+    // Vertical position of the camera.
+    local pos_z = RH*0.5
+
+    // Horizontal distance from the camera to the floor for the current row.
+    // 0.5 is the z position exactly in the middle between floor and ceiling.
+    local row_distance = pos_z / p
+
+    // calculate the real world step vector we have to add for each x (parallel to camera plane)
+    // adding step by step avoids multiplications with a weight in the inner loop
+    local floor_step_x = row_distance * (ray_dir_x2 - ray_dir_x1) / RW
+    local floor_step_y = row_distance * (ray_dir_y2 - ray_dir_y1) / RW
+
+    // real world coordinates of the leftmost column. This will be updated 
+    // as we step to the right.
+    local floor_x = player.x + row_distance * ray_dir_x1
+    local floor_y = player.y + row_distance * ray_dir_y1
+    
+    for x=0 to RW-1 by 1
+      // print("loop y: " + y + "  loop x: " + x)
+      // the cell coord is simply got from the integer parts of floor_x and floor_y
+      local cell_x = floor(floor_x)
+      local cell_y = floor(floor_y)
+
+      // get the texture coordinate from the fractional part
+      local tx = floor(((TEX_SIZE-1) * (floor_x - cell_x)) & (TEX_SIZE - 1))
+      local ty = floor(((TEX_SIZE-1) * (floor_y - cell_y)) & (TEX_SIZE - 1))
+      
+      floor_x += floor_step_x
+      floor_y += floor_step_y
+
+      // screen.drawSpritePart
+      draw_target.drawImagePart(
+        floor_texture,
+        tx, ty, 1, 1,
+        x, y, 1, 1
+      )
+
+      // if x == 0 then print(floor_texture) end
+      
+      // floor
+      // color = floor_texture.getRGB(tx, ty)
+      // color = floor_buf[ty][tx]
+      // print(color.R + ", " + color.G + ", " + color.B)
+      // color = (color >> 1) & 8355711; // make a bit darker
+      
+      // draw_target.setRGB(x,y, color.R, color.G, color.B)
+      // draw_target.setRGB(x,y, color[0], color[1], color[2])
+      // draw_target.setRGB(x, y, 255, 255, 255)
+
+      // //ceiling (symmetrical, at RH - y - 1 instead of y)
+      // color = ctex.getRGB(tx, ty)
+      // // color = (color >> 1) & 8355711; // make a bit darker
+      // draw_target.setRGB(x, RH-y-1, color.r, color.g, color.b)
+    end
+  end
+  
+  // print("done looping")
+end
+end()
+
+
+
+// file: init.ms
+function()
+
+
+init_settings = function()
+  input.bind("move_forward",  ["key_w",       "gp_lsu",          ])
+  input.bind("move_backward", ["key_s",       "gp_lsd",          ])
+  input.bind("move_left",     ["key_a",       "gp_lsl",          ])
+  input.bind("move_right",    ["key_d",       "gp_lsr",          ])
+  input.bind("turn_left",     ["arrow_left",  "gp_rsl",          ])
+  input.bind("turn_right",    ["arrow_right", "gp_rsr",          ])
+  input.bind("turn_around",   ["arrow_down",  "gp_a",            ])
+  input.bind("shoot",         ["ctrl",        "space", "mouse1", "gp_x", "gp_rb" ])
+  input.bind("debug",         ['\\',          '~',     "gp_view"])
+  
+  debug.active = true
+  debug.manual_input = true
+  draw_3d = true // you can switch this in the console for debugging
+  use_mouse = true
+  
+  
+  // TODO: this makes sprites drift on the floor while player is turning
+  // at higher FOVs
+  fix_distortions = false
+  
+  
+  SS = 1     // screen scale (use '2' to double the resolution)
+  
+  
+  // The tile size calculations were meant to make the screen fit an exact 
+  // number of tiles to better display the 2D map during the first steps 
+  // in development, but I decided to keep it. 
+  TS = 10     // tile size (should also use SS)
+  SW = 32*TS  // screen width
+  SH = 20*TS  // screen height
+  
+  
+  RW = SW*SS // resolution width
+  RH = SH*SS // resolution height
+  
+  FOV = deg2rad(70)
+  HALF_FOV = FOV/2 // theta
+  
+  
+  printf("resolution: %s, %s", [RW, RH] )
+  
+  HALF_W = floor(RW/2)
+  HALF_H = floor(RH/2)
+  
+  // res = object
+  //   w = RW
+  //   h = RH
+  // end
+  
+  FPS = 60
+  
+  img_buffer = new Image(RW, RH)
+  
+  
+  NUM_RAYS = floor((RW)/2) // ideally RW?
+  HALF_NUM_RAYS = floor(NUM_RAYS/2)
+  DELTA_ANGLE = FOV / NUM_RAYS
+  MAX_DEPTH = 20
+  
+  SCR_DIST = HALF_W / tan(HALF_FOV)
+  SCALE = floor(RW / NUM_RAYS)
+  
+  
+  TEX_SIZE = 32
+  HALF_TEX_SIZE = floor(TEX_SIZE/2)
+  PLAYER_SCALE = 90
+  
+  MOUSE_SENS = 0.1 / SS
+  // MOUSE_MAX_REL = 40
+  // MOUSE_BORDER = 100
+
+  // last_mouse_x = 0
+  // mouse_visible = true
+  
+  sky_offset = 0
+  
+  // img_buffer.setPixelated(false)
+  // screen.setPixelated(false)
+end
+
+
+// to change the fov at runtime use this
+// (can be typed in the console)
+set_fov = function(new_fov)
+  FOV = deg2rad(new_fov)
+  HALF_FOV = FOV/2 // theta
+  SCR_DIST = HALF_W / tan(HALF_FOV)
+  
+  DELTA_ANGLE = FOV / NUM_RAYS
+end
+end()
+
+
+
+// file: lib/jmejuniper/mouselock/lib.ms
+function()
+// init some variables
+mouse.relx = 0
+mouse.rely = 0
+mouse.locked = 0
+
+// js
+system.javascript("
+  // get the canvas
+  var canvas = document.querySelector('canvas');
+  
+  // callback functions
+  function updatePosition(mse) {
+    global.mouse.relx = mse.movementX;
+    // negative movementY because of microstudio's coordinate grid
+    global.mouse.rely = -mse.movementY;
+  }
+  function toggleMove() {
+    // handle lock toggling
+    if (document.pointerLockElement == canvas) {
+      global.mouse.locked = 1
+      canvas.addEventListener('mousemove', updatePosition);
+    } else {
+      global.mouse.locked = 0
+      canvas.removeEventListener('mousemove', updatePosition);
+    }
+  }
+  
+  // lock mouse pointer
+  canvas.onclick = function() {
+    canvas.requestPointerLock();
+  };
+  document.addEventListener('pointerlockchange', toggleMove);
+")
+
+// stop relx and rely when mouse stops
+every 24 milliseconds do
+  mouse.relx = 0
+  mouse.rely = 0
+end
+end()
+
+
+
+// file: lib/rectangle.ms
+function()
+
+Rect = class
+  __type = "Rect"
+  constructor = function(x, y, w, h)
+    this.x = x
+    this.y = y
+    this.w = w
+    this.h = h
+  end
+  
+  '+' = function(a, b) end
+  '-' = function(a, b) end
+  '/' = function(a, b) end
+  '*' = function(a, b) end
+  
+  eq = function(b) end
+end
+
+rect = function(x, y, w, h) return new Rect(x, y, w, h) end
+
+
+
+end()
+
+
+
+// file: lib/skaruts/debug_tools/debug_tools.ms
+function()
+/*
+        Debug Tools v0.7
+      
+      
+      
+    Quick usage reference:
+        
+        update = function()
+          debug.update()  // call this before everything
+          
+          debug.print("foo", foo)
+        end
+        
+        draw = function()
+          debug.print("bar", bar)
+          
+          debug.bm("map_drawing", function()
+            draw_map()
+          end)
+          
+          debug.draw()  // call this after everything
+        end
+*/
+
+
+
+// This array makes it easier to try out different fonts while the game 
+// is running. It has a selection of fonts that work well enough for 
+// vertical text alignment (only few fonts are monospaced).
+__fonts = [
+  "AESystematic", "AlphaBeta", "Comicoro", "Commodore64", "Edunline",
+  "EnchantedSword", "EnterCommand", "GenericMobileSystem", "JupiterCrash",
+  "ModernDos", "PressStart2P", "Revolute", "Squarewave", "Thixel",
+  "ZXSpectrum",
+  
+  /* monospaced fonts */
+  // "AESystematic", "Commodore64", "Edunline", "JupiterCrash", "ModernDos", 
+  // "PressStart2P","ZXSpectrum", 
+  
+  /* complete list of fonts */
+  // "AESystematic",        "Alkhemikal",     "AlphaBeta",        "Arpegius",      "Awesome", 
+  // "BitCell",             "Blocktopia",     "Comicoro",         "Commodore64",   "DigitalDisco", 
+  // "Edunline",            "EnchantedSword", "EnterCommand",     "Euxoi",         "FixedBold", 
+  // "GenericMobileSystem", "GrapeSoda",      "JupiterCrash",     "Kapel",         "KiwiSoda", 
+  // "Litebulb8bit",        "LycheeSoda",     "MisterPixel",      "ModernDos",     "NokiaCellPhone", 
+  // "PearSoda",            "PixAntiqua",     "PixChicago",       "PixelArial",    "PixelOperator", 
+  // "Pixellari",           "Pixolde",        "PlanetaryContact", "PressStart2P",  "RainyHearts", 
+  // "RetroGaming",         "Revolute",       "Romulus",          "Scriptorium",   "Squarewave", 
+  // "Thixel",              "Unbalanced",     "UpheavalPro",      "VeniceClassic", "ZXSpectrum", 
+  // "Zepto"
+]
+
+
+debug = object
+  active = false
+  active_drawing = false
+  
+  // -------------------------------------
+  //   user settings
+  // -------------------------------------
+  key1 = '\\'
+  key2 = '~'
+  
+  text_font = __fonts[6]
+  
+  text_font_default   = "BitCell"
+  text_font_size      = 12
+  text_line_spacing   = 0
+  text_outlined       = true
+  text_outline_width  = 3
+  text_background     = true
+  text_col_separation = 10
+  
+  panel_margin_left    = 4
+  panel_margin_right   = 4
+  panel_margin_top     = 0
+  panel_margin_bottom  = 2
+  panel_use_colors     = true
+  
+  panel_key_color     = "rgb(223,223,223)"
+  panel_string_color  = "rgb(255,255,198)"
+  panel_number_color  = "rgb(255,198,255)"
+  panel_object_color  = "rgb(198,217,255)"
+  panel_back_color    = "rgba(43,33,33,0.66)"
+  panel_frame_color   = "rgba(105,93,93,0.66)"
+  text_outline_color  = "rgb(0,0,0)"
+  shape_outline_color = "rgb(0,0,0)"
+  
+  shape_font = "BitCell"
+  shape_dash = [4, 6]
+  shape_line_width = 1
+  shape_outline_width = 4
+  
+  display_as_table = true
+  float_precision = 2
+  time_in_secs = false     // secs or millisecs
+  render_target = screen
+  manual_input = false
+  
+  bm_smoothing = 15          // lower = more responsive | higher = less twichy
+  bm_con_upd_interval = 1.0  // console update interval in seconds
+  
+  
+  // -------------------------------------
+  //   internal stuff
+  // -------------------------------------
+  _lines = []
+  _longest_line = 0
+  _longest_key  = 0
+  _longest_val  = 0
+  _longest_single_key  = 0
+  _bm_cache = object end
+  _draw_commands = object
+    line   = []
+    rline  = []
+    rect   = []
+    frect  = []
+    point  = []
+    fpoint = []
+    text   = []
+  end
+  
+  _t1 = system.time()
+  _dt = 0
+  _update_dt = function()
+    local t2 = system.time()
+    this._dt = (t2-this._t1)/1000
+    this._t1 = t2
+  end
+end
+
+
+debug._reset = function()
+  this._lines = []
+	this._longest_line = 0
+	this._longest_key  = 0
+	this._longest_val  = 0
+	this._longest_single_key = 0
+end
+
+
+debug._reset_drawing = function()
+  for kind in this._draw_commands
+	  this._draw_commands[kind] = []
+	end
+end
+
+
+debug.toggle = function()
+  this.active = not this.active
+end
+
+
+debug.toggle_drawing = function()
+  this.active_drawing = not this.active_drawing
+end
+debug.toggleDrawing = debug.toggle_drawing
+
+
+debug.update = function()
+  debug._update_dt()
+  
+  if this.active then
+    this._reset()
+  end
+  
+  if this.active_drawing then
+    this._reset_drawing()
+  end
+  
+  if not manual_input then 
+    if keyboard.press[this.key1] or keyboard.press[this.key2] then 
+      if keyboard["CONTROL"] then 
+        this.toggle_drawing()
+      else
+        this.toggle()
+      end
+    end
+  end
+end
+
+
+debug.commit_deferred = function()
+  this._process_draw_commands()
+end
+debug.commitDeferred = debug.commit_deferred
+
+
+debug.draw = function()
+  this._process_print_commands()
+end
+
+
+debug._draw_text = function(text, x, y, color)
+  if this.text_outlined then 
+    screen.setLineWidth(this.text_outline_width)
+    screen.drawTextOutline(text, x, y, this.text_font_size, this.text_outline_color)
+  end
+  screen.drawText(text, x, y, this.text_font_size, this.panel_use_colors and color or this.panel_key_color)
+end
+
+
+debug._parse_line_part = function(part, precision, is_key=false)
+  if this.___fmt___.is_float(part) then
+    return debug.__fmt("%" + floor(precision) + "f", [part])
+  end
+  if is_key and not this.display_as_table then 
+    return debug.__fmt("%s:", [part])
+  end
+  return debug.__fmt("%s", [part])
+end
+
+
+debug._draw_panel = function(fs)
+  if not this.text_background then return end
+  local rx = -screen.width/2
+	local ry = screen.height/2
+  local rh = this._lines.length*(fs+this.text_line_spacing)+this.panel_margin_bottom+this.panel_margin_top
+	local margins = this.panel_margin_left + this.panel_margin_right
+	local rw = 0
+  if this._longest_line+margins < this._longest_single_key then 
+    rw = this._longest_single_key
+    
+  else
+	  rw = this._longest_line
+	 // rw = this._longest_key + this._longest_val
+    rw += this.text_col_separation
+  end
+  // rw = this._longest_val
+	
+	rw += margins
+
+	screen.setLineWidth(1)
+	screen.setLineDash()
+	screen.fillRect(rx, ry, rw, rh, this.panel_back_color)
+	screen.drawRect(rx, ry, rw, rh, this.panel_frame_color)
+end
+
+
+debug._process_print_commands = function()
+  if not this.active then return end
+  screen.setDrawAnchor(-1, 1)
+  screen.setFont(this.text_font)
+  
+	local lines = this._lines
+	local fs = this.text_font_size
+	
+	local x = -screen.width/2+this.panel_margin_left
+
+	for line in lines
+    line.key_parsed = this._parse_line_part(line.key, line.precision, line.key != "" and line.val.type != 0 )
+
+    local kw = screen.textWidth(line.key_parsed, fs)
+    local vw = 0
+    local lw = 0
+    local lskw = 0
+    
+    if line.val.type != 0 then
+      line.val_parsed = this._parse_line_part(line.val, line.precision)
+      vw = screen.textWidth(line.val_parsed, fs) // +this.text_col_separation
+        
+    else
+      lskw = kw
+      kw = 0
+      
+    end
+    lw = kw + vw
+    
+    if lskw > this._longest_single_key then  this._longest_single_key = lskw end
+    if kw > this._longest_key then  this._longest_key  = kw end
+    if vw > this._longest_val then  this._longest_val  = vw end
+    if lw > this._longest_line then this._longest_line = lw end
+    
+    // local kstr = kw > 0 and fmt("%s (%d)", [line.key_parsed, kw]).align('l', 20) or ' '.align('l', 20)
+    // local vstr = vw > 0 and fmt("%s (%d)", [line.val_parsed, vw]).align('l', 20) or ' '.align('l', 20)
+    // local lstr = fmt("sum: %d", [lw]).align('l', 20)
+    // global.printf("%s| %s| %s", [kstr, vstr, lstr])
+  end
+  // global.print("------------------")
+  
+  if this.display_as_table then 
+    // if this._longest_key + this._longest_val > this._longest_single_key then
+      this._longest_line = this._longest_key + this._longest_val
+  end
+  
+  local val_x = x + this._longest_key + this.text_col_separation
+  
+  // global.print(this._longest_key)
+  // global.print(this._longest_val)
+  // global.print(this._longest_line)
+  // global.print("------------------")
+  
+	this._draw_panel(fs)
+
+	for i=0 to lines.length-1 by 1
+	  local line = this._lines[i]
+    local y = screen.height/2 - i*(fs+this.text_line_spacing) - this.panel_margin_top
+    
+    if not this.display_as_table then 
+      val_x = line.key_parsed == "" and x or (x + screen.textWidth(line.key_parsed, fs)+this.text_col_separation)
+    else
+      val_x = x + this._longest_key + this.text_col_separation
+    end
+    
+    if line.key_parsed != "" then 
+      this._draw_text(line.key_parsed, x, y, this.panel_key_color)
+    end
+    
+    if line.val_parsed.type != 0 then
+      local color = this.panel_string_color
+      if    line.val.type == "number" then color = this.panel_number_color
+      elsif line.val.type == "object" then color = this.panel_object_color
+      end
+      this._draw_text(line.val_parsed, val_x, y, color)
+    end
+  end
+  
+  screen.setFont(this.text_font_default)
+	screen.setDrawAnchor()
+	screen.setLineWidth()
+end
+
+
+_NOARG_ = object end
+debug.print = function(key, val=_NOARG_, precision=_NOARG_)
+  if not this.active then return end
+  
+  local line = object end
+  
+  if val == _NOARG_ then // 1 arg given
+    precision = this.float_precision
+  else   // 2 or 3 args given
+    if val.type == "number" and this.___fmt___.is_float(key) then 
+      precision = val
+      val = _NOARG_
+    elsif precision == _NOARG_ then
+      precision = this.float_precision
+    end
+  end
+  
+  if val != _NOARG_ then 
+    line.key = key 
+    line.val = val
+    line.precision = precision
+  else
+    line.key = key
+    line.precision = precision
+  end
+
+  this._lines.push(line)
+end
+
+
+debug._check_cache = function(name)
+  if not this._bm_cache[name] then 
+    this._bm_cache[name] = object
+      time_sum = 0
+      history = []
+      timer = this.bm_con_upd_interval
+    end
+  end
+  return this._bm_cache[name]
+end
+
+
+
+// benchmarks and prints results on screen 
+// optionally also prints to the console periodically
+
+// debug.bmc(string, function)
+debug.bmc = function(name, func)
+  this.bm(name, func, true)
+end
+
+
+// debug.bm(string, function)
+debug.bm = function(name, func, __con_prt=false)
+  if not this.active and not __con_prt then 
+    func()
+    return 0
+  end
+  
+	local t1 = system.time()
+	func()
+	local t2 = (system.time() - t1)
+	if time_in_secs then
+	  t2 /= 1000
+	end
+  
+  local cache = this._check_cache(name)
+  
+  if this.bm_smoothing > 1 then 
+    cache.time_sum += t2
+    if cache.history.length > this.bm_smoothing then 
+      cache.time_sum -= cache.history.removeAt(0)
+    end
+    cache.history.push(t2)
+    t2 = cache.time_sum/cache.history.length
+  end
+  
+  local times_str = this.__fmt((time_in_secs and "%4f s" or "%d ms"), [t2])
+
+	if this.active and not __con_prt then 
+	  this.print(name, times_str)
+	end
+	
+	if __con_prt then
+    local str = this.__fmt("%s: " + times_str, [name])
+    
+    cache.timer -= this._dt
+    if cache.timer <= 0 then 
+      global.print(str)
+      cache.timer = this.bm_con_upd_interval
+    end  
+  end
+  return t2
+end
+
+
+
+/*******************************************************************************
+
+      Internal Drawing API
+
+*******************************************************************************/
+debug._process_draw_commands = function()
+  if not this.active_drawing then return end
+  
+  // lines
+  for c in this._draw_commands.line
+    this.line(c[0], c[1], c[2], c[3], c[4], c[5], c[6], c[7])
+  end
+  
+  for c in this._draw_commands.rline
+    this.line(c[0], c[1], c[2], c[3], c[4], c[5], c[6], c[7])
+  end
+  
+  for c in this._draw_commands.rect
+    this.rect(c[0], c[1], c[2], c[3], c[4], c[5], c[6], c[7], c[8])
+  end
+
+  for c in this._draw_commands.frect
+    this.frect(c[0], c[1], c[2], c[3], c[4], c[5], c[6])
+  end
+  
+  for c in this._draw_commands.point
+    this.point(c[0], c[1], c[2], c[3], c[4], c[5], c[6])
+  end
+  
+  for c in this._draw_commands.fpoint
+    this.fpoint(c[0], c[1], c[2], c[3], c[4])
+  end
+  
+  for c in this._draw_commands.text
+    this.text(c[0], c[1], c[2], c[3], c[4], c[5], c[6])
+  end
+end
+
+
+debug._add_draw_command = function(kind, params)
+  if not this.active_drawing then return end
+  this._draw_commands[kind].push(params)    
+end
+
+  
+
+
+
+/*******************************************************************************
+
+
+      Public Drawing API
+
+
+*******************************************************************************
+
+/*******************************************************************************
+      Deferred Drawing API
+*******************************************************************************/
+debug.dline = function(x1, y1, x2, y2, color, thickness=0, outline=false, dash=false)
+  this._add_draw_command("line", [x1, y1, x2, y2, color, thickness, outline, dash])    
+end
+
+debug.drline = function(x, y, rx, ry, color, thickness=0, outline=false, dash=false)
+  this._add_draw_command("rline", [x, y, x+rx, y+ry, color, thickness, outline, dash])    
+end
+
+debug.drect = function(x, y, w, h, color, thickness=0, radius=0, outline=false, dash=false)
+  this._add_draw_command("rect", [x, y, w, h, color, thickness, radius, outline, dash])
+end
+
+debug.dfrect = function(x, y, w, h, color, radius=0, outline=false)
+  this._add_draw_command("frect", [x, y, w, h, color, radius, outline])
+end
+
+debug.dpoint = function(x, y, radius, color, thickness=0, outline=false, dash=false)
+  this._add_draw_command("point", [x, y, radius, color, thickness, outline, dash])
+end
+
+debug.dfpoint = function(x, y, radius, color, outline=false)
+  this._add_draw_command("fpoint", [x, y, radius, color, outline])
+end
+
+debug.dtext = function(text, x, y, size, color, outline=false, font=0)
+  this._add_draw_command("text", [text, x, y, size, color, outline, font])
+end
+
+
+
+/*******************************************************************************      
+      Immediate Drawing API
+*******************************************************************************/
+debug.line = function(x1, y1, x2, y2, color, thickness=0, outline=false, dash=false)
+  if not this.active_drawing then return end
+  
+  thickness = thickness or this.shape_line_width
+  if dash then this.render_target.setLineDash(dash.type == "number" and this.shape_dash or dash) end
+  
+  if outline then 
+    this.render_target.setLineWidth(thickness+this.shape_outline_width)  
+    this.render_target.drawLine(x1, y1, x2, y2, this.shape_outline_color)
+  end  
+  
+  this.render_target.setLineWidth(thickness)
+  this.render_target.drawLine(x1, y1, x2, y2, color)
+  
+  this.render_target.setLineWidth()
+  if dash then this.render_target.setLineDash() end
+end
+
+
+debug.rline = function(x, y, rx, ry, color, thickness=0, outline=false, dash=false)
+  if not this.active_drawing then return end
+  
+  thickness = thickness or this.shape_line_width
+  if dash then this.render_target.setLineDash(dash.type == "number" and this.shape_dash or dash) end
+  
+  local x2 = x+rx
+  local y2 = y+ry
+  
+  if outline then 
+    this.render_target.setLineWidth(thickness+this.shape_outline_width)  
+    this.render_target.drawLine(x, y, x2, y2, this.shape_outline_color)
+  end  
+  
+  this.render_target.setLineWidth(thickness)
+  this.render_target.drawLine(x, y, x2, y2, color)
+  
+  this.render_target.setLineWidth()
+  if dash then this.render_target.setLineDash() end
+end
+
+
+debug.vec = function(px, py, dx, dy, color, thickness=0, outline=false, dash=false)
+  // this is an ongoing experiment, disregard
+  
+  local x2 = px+dx 
+  local y2 = py+dy
+  
+  this.line(px, py, x2, y2, color, thickness, outline, dash)
+  this.fpoint(px, py, thickness*2, color, outline)
+  
+end
+
+
+debug.rect = function(x, y, w, h, color, thickness=0, radius=0, outline=false, dash=false)
+  if not this.active_drawing then return end
+  
+  thickness = thickness or this.shape_line_width
+
+  if dash then this.render_target.setLineDash(dash.type == "number" and this.shape_dash or dash) end
+  if outline then 
+    this.render_target.setLineWidth(thickness+(owidth or this.shape_outline_width))  
+    this.render_target.drawRoundRect(x, y, w, h, radius, this.shape_outline_color)
+  end
+  this.render_target.setLineWidth(thickness)
+  this.render_target.drawRoundRect(x, y, w, h, radius, color)
+  
+  this.render_target.setLineWidth()
+  if dash then this.render_target.setLineDash() end
+end
+
+
+debug.frect = function(x, y, w, h, color, radius=0, outline=false)
+  if not this.active_drawing then return end
+  if outline then 
+    this.render_target.setLineWidth(this.shape_outline_width/2)  
+    this.render_target.drawRoundRect(x, y, w+this.shape_outline_width/2, h+this.shape_outline_width/2, radius, this.shape_outline_color)
+    this.render_target.setLineWidth()
+  end
+  this.render_target.fillRoundRect(x, y, w, h, radius, color)
+end
+
+
+debug.point = function(x, y, radius, color, thickness=0, outline=false, dash=false)
+  if not this.active_drawing then return end
+
+  if dash then this.render_target.setLineDash(dash.type == "number" and this.shape_dash or dash) end
+  if outline then 
+    this.render_target.setLineWidth(thickness+(owidth or this.shape_outline_width))  
+    this.render_target.drawRound(x, y, radius*2, radius*2, this.shape_outline_color)  
+  end
+  this.render_target.setLineWidth(thickness or this.shape_line_width)
+  this.render_target.drawRound(x, y, radius*2, radius*2, color)
+
+  this.render_target.setLineWidth()
+  if dash then this.render_target.setLineDash() end
+end
+
+
+debug.fpoint = function(x, y, radius, color, outline=false)
+  if not this.active_drawing then return end
+  
+  if outline then 
+    this.render_target.setLineWidth(this.shape_outline_width/2)
+    this.render_target.drawRound(x, y, radius*2+this.shape_outline_width/2, radius*2+this.shape_outline_width/2, this.shape_outline_color)  
+    this.render_target.setLineWidth()
+  end
+  this.render_target.fillRound(x, y, radius*2, radius*2, color)
+end
+
+
+
+debug.text = function(text, x, y, size, color, outline=false, font=0)
+  if not this.active_drawing then return end
+  
+  local rtarget = this.render_target
+  
+  rtarget.setFont(font or this.shape_font)
+  
+  if outline then 
+    rtarget.setLineWidth(this.shape_outline_width)
+    rtarget.drawTextOutline(text, x, y, size, this.shape_outline_color)
+    rtarget.setLineWidth()
+  end
+  
+  rtarget.drawText(text, x, y, size, color)
+
+  if font then rtarget.setFont(this.text_font_default) end
+end
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*
+    
+    
+    Disregard everything below. It's a partial copy of my String format 
+    library (version 0.9). The debugger just uses it for (my) convenience. 
+    
+    
+*/
+
+debug.___fmt___ = object
+  // helper lookup tables
+  // TODO: test if using table is faster than using strings for LUTs
+  VALID = ['s', 'd', 'f', 'o', 't', '0', '1', '2', '3', '4', '5', '6', '7', '8', '9']
+  DIGITS = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9']
+  
+  // used to replace escaped or invalid '%'s, to mark where they are
+  // because 'indexOf' always finds the first occurrence
+  TEMP = "__(@^€!$~@]__"  // (just an unlikely pattern to exist in any other string)
+  
+  // truncate floats
+  ftrunc = function(val, num_decimals)
+    return round(val*10^num_decimals)/10^num_decimals
+  end
+  
+  is_float = function(num)
+    return num.type == "number" and num % 1 != 0
+  end
+  // parse objects, recursively, and expand their properties
+  // 'obj.__str' should be an instance function that returns 
+  // a string representing the object
+  parse_obj = function(obj, level=0)
+    // if obj.__str then return obj.__str() end
+    // and obj.__str.type == "function" then return obj.__str() end
+  
+    local indent = ""
+    local fields_str = ""
+    
+    for k in obj
+      local v = obj[k]
+      
+      indent = "  "
+      for i=0 to level-1 by 1 
+        indent += "  " 
+      end
+      
+      if v.type == "object" and k != "class" then 
+        v = this.parse_obj(v, level+1) 
+      end
+      
+      fields_str += indent + k + " = " + v + "\n"
+    end
+    
+    indent = ""
+    for i=0 to level-1 by 1 
+      indent += "  " 
+    end
+    
+    local out_str = "object\n" + fields_str + indent + "end"
+    
+    return level == 0
+       and indent + out_str
+        or out_str
+  end
+end
+
+debug.__fmt = function(str, args)
+  if args.type != "list" or args.length == 0 then return str end
+  local index = str.indexOf('%')
+  local i = 0
+
+  // local j = 0  // temp safety
+  while index != -1 //and j < 100
+    // j += 1
+    local ch = str.substring(index+1, min(index+2, str.length))
+    
+    // if '%' is escaped, mark it and continue
+    if str.substring(index-1, index, str.length) == '\\' then
+      str = str.substring(0, index-1) + str.substring(index, str.length)
+      str = str.replace('%', debug.___fmt___.TEMP)
+      index = str.indexOf('%')
+      continue
+    end
+    
+    if debug.___fmt___.VALID.contains(ch) then
+      local arg = args[i]
+      
+      // not a float or no precision specified
+      if not debug.___fmt___.DIGITS.contains(ch) then
+        if    ch == 'd' then
+          arg = if arg.type == "number" then floor(arg) else "NAN" end
+        
+        elsif ch == 'f' then
+          arg = if arg.type == "number" then arg else "NAN" end
+        
+        elsif ch == 'o'and arg.type == "object" then
+          arg = debug.___fmt___.parse_obj(arg)
+        
+        elsif ch == 't' then
+          arg = arg.__type or arg.type
+        else
+          if arg.__str then arg = arg.__str() end
+        end
+        
+        str = str.replace("%" + ch, arg)
+      
+      // it's a float with precision
+      else
+        if arg.type != "number" then
+          str = str.replace("%" + ch, "NAN")
+        else
+          local tmp = str.substring(index+1, str.length)
+          local ending = tmp.indexOf('f')
+          
+          if ending < 0 then
+            str = str.replace('%', debug.___fmt___.TEMP)
+            index = str.indexOf('%')
+            continue
+          end
+          tmp = tmp.substring(0, ending+1)
+          
+          local prec = Number.parse(tmp.substring(0, ending))
+          str = str.replace('%'+tmp, debug.___fmt___.ftrunc(arg, prec))
+        end
+      end
+      
+      index = str.indexOf('%')
+      i += 1
+    else
+      str = str.replace('%', debug.___fmt___.TEMP)
+      index = str.indexOf('%')
+    end
+    // print(j + " | " + str)
+  end
+  
+  
+  // j = 0  // temp safety
+  while true// and j < 100
+    // j += 1
+    local idx = str.indexOf(debug.___fmt___.TEMP)
+    if idx < 0 then break end
+    str = str.replace(debug.___fmt___.TEMP, '%')
+  end
+  
+  return str
+end
+end()
+
+
+
+// file: lib/skaruts/debugger/debugger.ms
+function()
+/*
+        Debugger v0.41
+      
+      
+      
+    Quick usage reference:
+        
+        update = function()
+          debug.update()  // call this before everything
+          
+          debug.print("foo", foo)
+        end
+        
+        draw = function()
+          debug.print("bar", bar)
+          
+          debug.bm("map_drawing", function()
+            draw_map()
+          end)
+          
+          debug.draw()  // call this after everything
+        end
+*/
+
+
+
+// This array makes it easier to try out different fonts while the game 
+// is running. It has a selection of fonts that work well enough for 
+// vertical text alignment (very few fonts are monospaced).
+__fonts = [
+  "AESystematic", "AlphaBeta", "Comicoro", "Commodore64", "Edunline",
+  "EnchantedSword", "EnterCommand", "GenericMobileSystem", "JupiterCrash",
+  "ModernDos", "PressStart2P", "Revolute", "Squarewave", "Thixel",
+  "ZXSpectrum",
+  
+  /* monospaced fonts */
+  // "AESystematic", "Commodore64", "Edunline", "JupiterCrash", "ModernDos", 
+  // "PressStart2P","ZXSpectrum", 
+  
+  /* complete list of fonts */
+  // "AESystematic",        "Alkhemikal",     "AlphaBeta",        "Arpegius",      "Awesome", 
+  // "BitCell",             "Blocktopia",     "Comicoro",         "Commodore64",   "DigitalDisco", 
+  // "Edunline",            "EnchantedSword", "EnterCommand",     "Euxoi",         "FixedBold", 
+  // "GenericMobileSystem", "GrapeSoda",      "JupiterCrash",     "Kapel",         "KiwiSoda", 
+  // "Litebulb8bit",        "LycheeSoda",     "MisterPixel",      "ModernDos",     "NokiaCellPhone", 
+  // "PearSoda",            "PixAntiqua",     "PixChicago",       "PixelArial",    "PixelOperator", 
+  // "Pixellari",           "Pixolde",        "PlanetaryContact", "PressStart2P",  "RainyHearts", 
+  // "RetroGaming",         "Revolute",       "Romulus",          "Scriptorium",   "Squarewave", 
+  // "Thixel",              "Unbalanced",     "UpheavalPro",      "VeniceClassic", "ZXSpectrum", 
+  // "Zepto"
+]
+
+
+debug = object
+  active = true
+  active_drawing = false
+  
+  // -------------------------------------
+  //   user settings
+  // -------------------------------------
+  key1 = '\\'
+  key2 = '~'
+  
+  text_font = __fonts[6]
+  
+  text_font_default = "BitCell"
+  text_font_size = 10
+  text_line_spacing = 1
+  text_outlined = true
+  text_outline_width = 3
+  text_background = true
+  
+  text_color = "#eee"
+  back_color = "#433a"
+  frame_color = "#877a"
+  text_outline_color = "#000"
+  shape_outline_color = "#000"
+  
+  shape_font = "BitCell"
+  shape_dash = [4, 6]
+  shape_line_width = 1
+  shape_outline_width = 4
+  
+  display_as_table = true  // only works with monospaced-ish fonts
+  align_width = 14
+  float_precision = 2
+  time_in_secs = false  // secs or millisecs
+  render_target = screen
+  manual_input_handling = false
+  
+  
+  // -------------------------------------
+  //   internal stuff
+  // -------------------------------------
+  
+  _lines = []
+  _longest_line = 0
+  _bm_cache = object end
+  _con_upd_interval = 1.0
+  _draw_commands = object
+    line   = []
+    rline  = []
+    rect   = []
+    frect  = []
+    point  = []
+    fpoint = []
+    text   = []
+  end
+  
+  _t1 = system.time()
+  _dt = 0
+  _update_dt = function()
+    local t2 = system.time()
+    this._dt = (t2-this._t1)/1000
+    this._t1 = t2
+  end
+end
+
+
+debug._reset = function()
+  this._lines = []
+	this._longest_line = ""
+end
+
+debug._reset_drawing = function()
+  for kind in this._draw_commands
+	  this._draw_commands[kind] = []
+	end
+end
+
+debug.toggle = function()
+  this.active = not this.active
+end
+
+debug.toggle_drawing = function()
+  this.active_drawing = not this.active_drawing
+end
+debug.toggleDrawing = debug.toggle_drawing
+
+
+debug.update = function()
+  debug._update_dt()
+  
+  if this.active then
+    this._reset()
+  end
+  
+  if this.active_drawing then
+    this._reset_drawing()
+  end
+  
+  if not manual_input_handling then 
+    if keyboard.press[this.key1] or keyboard.press[this.key2] then 
+      if keyboard["CONTROL"] then 
+        this.toggle_drawing()
+      else
+        this.toggle()
+      end
+    end
+  end
+end
+
+
+debug.commit_deferred = function()
+  this._process_draw_commands()
+end
+debug.commitDeferred = debug.commit_deferred
+
+
+debug.draw = function()
+  this._process_print_commands()
+end
+
+
+debug._process_print_commands = function()
+  if not this.active then return end
+  screen.setDrawAnchor(-1, 1)
+  screen.setFont(this.text_font)
+
+	local lines = this._lines
+	local fs = this.text_font_size
+	
+	local rx = -screen.width/2
+	local ry = screen.height/2
+	local rw = screen.textWidth(this._longest_line, fs)+6
+	local rh = lines.length*(fs+this.text_line_spacing)+2
+	
+	if this.text_background then 
+  	screen.setLineWidth(1)
+  	screen.setLineDash()
+  	screen.fillRect(rx, ry, rw, rh, this.back_color)
+  	screen.drawRect(rx, ry, rw, rh, this.frame_color)
+  end
+	
+	for i=0 to lines.length-1 by 1
+    local x = -screen.width/2+4
+    local y = screen.height/2-i*(fs+this.text_line_spacing)
+    if this.text_outlined then 
+      screen.setLineWidth(this.text_outline_width)
+      screen.drawTextOutline(lines[i], x, y, fs, this.text_outline_color)
+    end
+    screen.drawText(lines[i], x, y, fs, this.text_color)
+  end
+  
+  screen.setFont(this.text_font_default)
+	screen.setDrawAnchor()
+	screen.setLineWidth()
+end
+
+
+
+
+debug._ftrunc = function(val, num_decimals)
+  return round(val*10^num_decimals)/10^num_decimals
+end
+  
+debug._is_float = function(num)
+  return num.type == "number" and num % 1 != 0
+end
+
+
+_NOARG_ = object end
+
+debug.print = function(key, val=_NOARG_, precision=_NOARG_)
+  if not this.active then return end
+  
+  if val == _NOARG_ then // 1 arg given
+    precision = this.float_precision
+  else   // 2 or 3 args given
+    if val.type == "number" and this._is_float(key) then 
+      precision = val
+      val = _NOARG_
+    elsif precision == _NOARG_ then 
+      precision = this.float_precision 
+    end
+  end
+  
+	local line = ""
+  
+  // TODO: this can probably be simplified 	
+	
+  if val != _NOARG_ then
+    if this._is_float(val) then
+      // line = debug.__fmt("%s: %" + floor(precision) + "f", [key, val])
+      val = this._ftrunc(val, floor(precision)) 
+    end
+    
+    if key == "" then
+      if this.display_as_table then
+        key = ' '.repeat(this.align_width)
+      end
+      line = debug.__fmt("%s%s", [key, val])  
+    else
+      if this.display_as_table then
+        if key.length < this.align_width then
+          key += ' '.repeat(this.align_width-key.length)
+        end
+        line = debug.__fmt("%s%s", [key, val])
+      else
+        line = debug.__fmt("%s: %s", [key, val])
+      end
+    end
+  else
+    if this._is_float(key) then
+      line = debug.__fmt("%" + floor(precision) + "f", [key])
+    else
+      line = debug.__fmt("%s", [key])
+    end
+  end
+	
+
+  if line.length > this._longest_line.length then
+    this._longest_line = line
+  end
+
+	this._lines.push(line)
+end
+  
+
+
+debug._check_cache = function(name)
+  if not this._bm_cache[name] then 
+    this._bm_cache[name] = object
+      frames = 0
+      time = 0
+      timer = this._con_upd_interval
+    end
+  end
+  return this._bm_cache[name]
+end
+
+
+debug._count_frame = function(cached)
+  cached.frames += 1
+	if cached.frames > 500 then 
+    cached.frames = 1
+    cached.time = 0
+	end
+end
+
+
+// benchmarks and prints results on screen 
+// optionally also prints to the console periodically
+
+// debug.bm(string, [boolean,] function)
+
+debug.bm = function(name, con_prt, func)
+  if con_prt.type == "function" then 
+      func = con_prt
+      con_prt = false
+  end
+  
+  if not this.active and not con_prt then 
+    func()
+    return 
+  end
+  
+  local cached = this._check_cache(name)
+  this._count_frame(cached)
+	
+	local t1 = system.time()
+	func()
+	local t2 = (system.time() - t1)
+	if time_in_secs then
+	  t2 /= 1000
+	end
+  
+  cached.time += t2
+	local avg = cached.time/cached.frames
+	
+	local times_str = time_in_secs 
+	                  and debug.__fmt("avg %4f s  |  tm %4f s", [avg, t2])
+	                   or debug.__fmt("avg %d ms |  tm %d ms", [avg, t2])
+	
+	if this.active then 
+	  this.print("> " + name, times_str)
+	end
+	
+	if con_prt then
+    local str = debug.__fmt("%s: " + times_str, [name])
+    
+    cached.timer -= debug._dt
+    if cached.timer <= 0 then 
+      global.print(str)
+      cached.timer = this._con_upd_interval
+    end  
+  end
+  return str
+end
+
+
+
+
+/*******************************************************************************
+
+      Internal Drawing API
+
+*******************************************************************************/
+debug._process_draw_commands = function()
+  if not this.active_drawing then return end
+  
+  // lines
+  for c in this._draw_commands.line
+    this.line(c[0], c[1], c[2], c[3], c[4], c[5], c[6], c[7])
+  end
+  
+  for c in this._draw_commands.rline
+    this.line(c[0], c[1], c[2], c[3], c[4], c[5], c[6], c[7])
+  end
+  
+  for c in this._draw_commands.rect
+    this.rect(c[0], c[1], c[2], c[3], c[4], c[5], c[6], c[7], c[8])
+  end
+
+  for c in this._draw_commands.frect
+    this.frect(c[0], c[1], c[2], c[3], c[4], c[5], c[6])
+  end
+  
+  for c in this._draw_commands.point
+    this.point(c[0], c[1], c[2], c[3], c[4], c[5], c[6])
+  end
+  
+  for c in this._draw_commands.fpoint
+    this.fpoint(c[0], c[1], c[2], c[3], c[4])
+  end
+  
+  for c in this._draw_commands.text
+    this.text(c[0], c[1], c[2], c[3], c[4], c[5], c[6])
+  end
+end
+
+
+debug._add_draw_command = function(kind, params)
+  if not this.active_drawing then return end
+  this._draw_commands[kind].push(params)    
+end
+
+  
+
+
+
+/*******************************************************************************
+
+
+      Public Drawing API
+
+
+*******************************************************************************
+
+/*******************************************************************************
+      Deferred Drawing API
+*******************************************************************************/
+debug.dline = function(x1, y1, x2, y2, color, thickness=0, outline=false, dash=false)
+  this._add_draw_command("line", [x1, y1, x2, y2, color, thickness, outline, dash])    
+end
+
+debug.drline = function(x, y, rx, ry, color, thickness=0, outline=false, dash=false)
+  this._add_draw_command("rline", [x, y, x+rx, y+ry, color, thickness, outline, dash])    
+end
+
+debug.drect = function(x, y, w, h, color, thickness=0, radius=0, outline=false, dash=false)
+  this._add_draw_command("rect", [x, y, w, h, color, thickness, radius, outline, dash])
+end
+
+debug.dfrect = function(x, y, w, h, color, radius=0, outline=false)
+  this._add_draw_command("frect", [x, y, w, h, color, radius, outline])
+end
+
+debug.dpoint = function(x, y, radius, color, thickness=0, outline=false, dash=false)
+  this._add_draw_command("point", [x, y, radius, color, thickness, outline, dash])
+end
+
+debug.dfpoint = function(x, y, radius, color, outline=false)
+  this._add_draw_command("fpoint", [x, y, radius, color, outline])
+end
+
+debug.dtext = function(text, x, y, size, color, outline=false, font=0)
+  this._add_draw_command("text", [text, x, y, size, color, outline, font])
+end
+
+
+
+/*******************************************************************************      
+      Immediate Drawing API
+*******************************************************************************/
+debug.line = function(x1, y1, x2, y2, color, thickness=0, outline=false, dash=false)
+  if not this.active_drawing then return end
+  
+  thickness = thickness or this.shape_line_width
+  if dash then this.render_target.setLineDash(dash.type == "number" and this.shape_dash or dash) end
+  
+  if outline then 
+    this.render_target.setLineWidth(thickness+this.shape_outline_width)  
+    this.render_target.drawLine(x1, y1, x2, y2, this.shape_outline_color)
+  end  
+  
+  this.render_target.setLineWidth(thickness)
+  this.render_target.drawLine(x1, y1, x2, y2, color)
+  
+  this.render_target.setLineWidth()
+  if dash then this.render_target.setLineDash() end
+end
+
+
+debug.rline = function(x, y, rx, ry, color, thickness=0, outline=false, dash=false)
+  if not this.active_drawing then return end
+  
+  thickness = thickness or this.shape_line_width
+  if dash then this.render_target.setLineDash(dash.type == "number" and this.shape_dash or dash) end
+  
+  local x2 = x+rx
+  local y2 = y+ry
+  
+  if outline then 
+    this.render_target.setLineWidth(thickness+this.shape_outline_width)  
+    this.render_target.drawLine(x, y, x2, y2, this.shape_outline_color)
+  end  
+  
+  this.render_target.setLineWidth(thickness)
+  this.render_target.drawLine(x, y, x2, y2, color)
+  
+  this.render_target.setLineWidth()
+  if dash then this.render_target.setLineDash() end
+end
+
+
+debug.vec = function(px, py, dx, dy, color, thickness=0, outline=false, dash=false)
+  // this is an ongoing experiment, disregard
+  
+  local x2 = px+dx 
+  local y2 = py+dy
+  
+  this.line(px, py, x2, y2, color, thickness, outline, dash)
+  this.fpoint(px, py, thickness*2, color, outline)
+  
+end
+
+
+debug.rect = function(x, y, w, h, color, thickness=0, radius=0, outline=false, dash=false)
+  if not this.active_drawing then return end
+  
+  thickness = thickness or this.shape_line_width
+
+  if dash then this.render_target.setLineDash(dash.type == "number" and this.shape_dash or dash) end
+  if outline then 
+    this.render_target.setLineWidth(thickness+(owidth or this.shape_outline_width))  
+    this.render_target.drawRoundRect(x, y, w, h, radius, this.shape_outline_color)
+  end
+  this.render_target.setLineWidth(thickness)
+  this.render_target.drawRoundRect(x, y, w, h, radius, color)
+  
+  this.render_target.setLineWidth()
+  if dash then this.render_target.setLineDash() end
+end
+
+
+debug.frect = function(x, y, w, h, color, radius=0, outline=false)
+  if not this.active_drawing then return end
+  if outline then 
+    this.render_target.setLineWidth(this.shape_outline_width/2)  
+    this.render_target.drawRoundRect(x, y, w+this.shape_outline_width/2, h+this.shape_outline_width/2, radius, this.shape_outline_color)
+    this.render_target.setLineWidth()
+  end
+  this.render_target.fillRoundRect(x, y, w, h, radius, color)
+end
+
+
+debug.point = function(x, y, radius, color, thickness=0, outline=false, dash=false)
+  if not this.active_drawing then return end
+
+  if dash then this.render_target.setLineDash(dash.type == "number" and this.shape_dash or dash) end
+  if outline then 
+    this.render_target.setLineWidth(thickness+(owidth or this.shape_outline_width))  
+    this.render_target.drawRound(x, y, radius*2, radius*2, this.shape_outline_color)  
+  end
+  this.render_target.setLineWidth(thickness or this.shape_line_width)
+  this.render_target.drawRound(x, y, radius*2, radius*2, color)
+
+  this.render_target.setLineWidth()
+  if dash then this.render_target.setLineDash() end
+end
+
+
+debug.fpoint = function(x, y, radius, color, outline=false)
+  if not this.active_drawing then return end
+  
+  if outline then 
+    this.render_target.setLineWidth(this.shape_outline_width/2)
+    this.render_target.drawRound(x, y, radius*2+this.shape_outline_width/2, radius*2+this.shape_outline_width/2, this.shape_outline_color)  
+    this.render_target.setLineWidth()
+  end
+  this.render_target.fillRound(x, y, radius*2, radius*2, color)
+end
+
+
+
+debug.text = function(text, x, y, size, color, outline=false, font=0)
+  if not this.active_drawing then return end
+  
+  local rtarget = this.render_target
+  
+  rtarget.setFont(font or this.shape_font)
+  
+  if outline then 
+    rtarget.setLineWidth(this.shape_outline_width)
+    rtarget.drawTextOutline(text, x, y, size, this.shape_outline_color)
+    rtarget.setLineWidth()
+  end
+  
+  rtarget.drawText(text, x, y, size, color)
+
+  if font then rtarget.setFont(this.text_font_default) end
+end
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*
+    
+    
+    Disregard everything below. It's a partial copy of my String format 
+    library (version 0.9). The debugger just uses it for (my) convenience. 
+    
+    
+*/
+
+debug.___fmt___ = object
+  // helper lookup tables
+  // TODO: test if using table is faster than using strings for LUTs
+  VALID = ['s', 'd', 'f', 'o', 't', '0', '1', '2', '3', '4', '5', '6', '7', '8', '9']
+  DIGITS = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9']
+  
+  // used to replace escaped or invalid '%'s, to mark where they are
+  // because 'indexOf' always finds the first occurrence
+  TEMP = "__(@^€!$~@]__"  // (just an unlikely pattern to exist in any other string)
+  
+  // truncate floats
+  ftrunc = function(val, num_decimals)
+    return round(val*10^num_decimals)/10^num_decimals
+  end
+  
+  is_float = function(num)
+    return num.type == "number" and num % 1 != 0
+  end
+  // parse objects, recursively, and expand their properties
+  // 'obj.__str' should be an instance function that returns 
+  // a string representing the object
+  parse_obj = function(obj, level=0)
+    // if obj.__str then return obj.__str() end
+    // and obj.__str.type == "function" then return obj.__str() end
+  
+    local indent = ""
+    local fields_str = ""
+    
+    for k in obj
+      local v = obj[k]
+      
+      indent = "  "
+      for i=0 to level-1 by 1 
+        indent += "  " 
+      end
+      
+      if v.type == "object" and k != "class" then 
+        v = this.parse_obj(v, level+1) 
+      end
+      
+      fields_str += indent + k + " = " + v + "\n"
+    end
+    
+    indent = ""
+    for i=0 to level-1 by 1 
+      indent += "  " 
+    end
+    
+    local out_str = "object\n" + fields_str + indent + "end"
+    
+    return level == 0
+       and indent + out_str
+        or out_str
+  end
+end
+
+debug.__fmt = function(str, args)
+  if args.type != "list" or args.length == 0 then return str end
+  local index = str.indexOf('%')
+  local i = 0
+
+  // local j = 0  // temp safety
+  while index != -1 //and j < 100
+    // j += 1
+    local ch = str.substring(index+1, min(index+2, str.length))
+    
+    // if '%' is escaped, mark it and continue
+    if str.substring(index-1, index, str.length) == '\\' then
+      str = str.substring(0, index-1) + str.substring(index, str.length)
+      str = str.replace('%', debug.___fmt___.TEMP)
+      index = str.indexOf('%')
+      continue
+    end
+    
+    if debug.___fmt___.VALID.contains(ch) then
+      local arg = args[i]
+      
+      // not a float or no precision specified
+      if not debug.___fmt___.DIGITS.contains(ch) then
+        if    ch == 'd' then
+          arg = if arg.type == "number" then floor(arg) else "NAN" end
+        
+        elsif ch == 'f' then
+          arg = if arg.type == "number" then arg else "NAN" end
+        
+        elsif ch == 'o'and arg.type == "object" then
+          arg = debug.___fmt___.parse_obj(arg)
+        
+        elsif ch == 't' then
+          arg = arg.__type or arg.type
+        else
+          if arg.__str then arg = arg.__str() end
+        end
+        
+        str = str.replace("%" + ch, arg)
+      
+      // it's a float with precision
+      else
+        if arg.type != "number" then
+          str = str.replace("%" + ch, "NAN")
+        else
+          local tmp = str.substring(index+1, str.length)
+          local ending = tmp.indexOf('f')
+          
+          if ending < 0 then
+            str = str.replace('%', debug.___fmt___.TEMP)
+            index = str.indexOf('%')
+            continue
+          end
+          tmp = tmp.substring(0, ending+1)
+          
+          local prec = Number.parse(tmp.substring(0, ending))
+          str = str.replace('%'+tmp, debug.___fmt___.ftrunc(arg, prec))
+        end
+      end
+      
+      index = str.indexOf('%')
+      i += 1
+    else
+      str = str.replace('%', debug.___fmt___.TEMP)
+      index = str.indexOf('%')
+    end
+    // print(j + " | " + str)
+  end
+  
+  
+  // j = 0  // temp safety
+  while true// and j < 100
+    // j += 1
+    local idx = str.indexOf(debug.___fmt___.TEMP)
+    if idx < 0 then break end
+    str = str.replace(debug.___fmt___.TEMP, '%')
+  end
+  
+  return str
+end
+end()
+
+
+
+// file: lib/skaruts/delta_time/delta_time.ms
+function()
+
+system.dt = 0  // delta time
+system.frame = 0
+
+_t1_ = system.time()
+
+// call inside update, before everything else
+dt_update = function()
+  system.frame += 1
+  local t2 = system.time()
+  system.dt = (t2-_t1_)/1000
+  _t1_ = t2
+end
+end()
+
+
+
+// file: lib/skaruts/input_mapper/input_mapper.ms
+function()
+/*
+  
+      Input Mapper 0.3.1
+  
+  
+  Quick usage reference:
+  
+    init = function()
+      input.bind("shoot", ["space", "gp_x"])
+    end
+    
+    update = function
+      input.update()
+      
+      if input.actionPressed("shoot") then 
+        spaceship.shoot()
+      end
+    end
+  
+*/
+
+
+/*******************************************************************************
+
+      Public input API
+
+*******************************************************************************/
+input = object end
+  
+input.action_pressed = function(action_id)
+  return __im.actions_pressed[action_id] == 1
+end
+
+
+input.action_released = function(action_id) 
+  return __im.actions_released[action_id]
+end
+
+
+input.action_down = function(action_id) 
+  return __im.actions_pressed[action_id] > 1
+end
+
+
+// camelCase versions
+input.actionPressed  = input.action_pressed
+input.actionReleased = input.action_released
+input.actionDown     = input.action_down
+
+
+input.update = function()
+  __im.update_mouse()
+  
+  __im.actions_released = object end
+  
+  __im.increase_action_timers()
+
+  for id in __im.actions
+    local action =  __im.actions[id]
+    __im.check_action_is_pressed(action)
+    __im.check_action_is_released(action)
+  end
+end
+
+
+input.bind = function(action_id, keys)
+  local action = __im.new_action(action_id)
+
+  for k in keys
+    local b_arr = __im.get_corrected_bind(k)
+    local input_type = b_arr[0]
+    local key  = b_arr[1]
+    local mods = b_arr[2]
+    
+    
+    
+    local bind = object
+      key = key
+      mods = object end
+    end
+    
+    for mod in mods
+      mod = mod.toUpperCase()
+      if __im.is_valid_mod_key[mod] then 
+        local lmod = 0
+        local rmod = 0
+        if __im.is_dual_mod_key[mod] then
+          lmod = __im.check_key_conversion("L" + mod)
+          rmod = __im.check_key_conversion("R" + mod)
+        elsif __im.is_left_mod_key[mod] then 
+          lmod = __im.check_key_conversion(mod)
+        elsif __im.is_right_mod_key[mod] then 
+          rmod = __im.check_key_conversion(mod)
+        end
+
+        if lmod then bind.mods[lmod] = true end
+  			if rmod then bind.mods[rmod] = true end
+  		end
+    end
+    // printt(input_type, key)
+    action[input_type].push(bind)
+  end
+end
+
+
+
+
+/*******************************************************************************
+
+      internal input stuff
+
+*******************************************************************************/
+__im = object 
+  actions = object end
+  actions_pressed = object end  
+  actions_released = object end
+  actions_by_key = object end
+  
+  // lookup tables for checking modifier keys
+  is_dual_mod_key  = object CTRL =true CONTROL=true SHIFT=true ALT=true end
+  is_left_mod_key  = object LCTRL=true LALT=true LSHIFT=true CONTROL_LEFT=true SHIFT_LEFT=true ALT_LEFT=true end
+  is_right_mod_key = object RCTRL=true RALT=true RSHIFT=true CONTROL_RIGHT=true SHIFT_RIGHT=true ALT_RIGHT=true end
+  is_valid_mod_key = object
+  	LCTRL=true  LSHIFT=true  LALT=true
+  	RCTRL=true  RSHIFT=true  RALT=true
+  	CTRL =true  CONTROL=true SHIFT =true  ALT =true
+  	CONTROL_LEFT =true  SHIFT_LEFT =true  ALT_LEFT =true
+  	CONTROL_RIGHT=true  SHIFT_RIGHT=true  ALT_RIGHT=true
+  end
+  is_ctrl_key  = object CTRL =true  CONTROL=true LCTRL=true RCTRL=true CONTROL_LEFT =true CONTROL_RIGHT=true end
+  is_shift_key = object SHIFT =true LSHIFT=true RSHIFT=true SHIFT_LEFT =true SHIFT_RIGHT=true end
+  is_alt_key   = object ALT =true LALT=true RALT=true ALT_LEFT =true ALT_RIGHT=true end
+end
+
+
+__im.key_conversion_map = object
+  CTRL   = "CONTROL"
+  LCTRL  = "CONTROL_LEFT"
+  RCTRL  = "CONTROL_RIGHT"
+  LALT   = "ALT_LEFT"
+  RALT   = "ALT_RIGHT"
+  RSHIFT = "SHIFT_RIGHT"
+  LSHIFT = "SHIFT_LEFT"
+
+  NP_0 = "NUMPAD_0"
+  NP_1 = "NUMPAD_1"
+  NP_2 = "NUMPAD_2"
+  NP_3 = "NUMPAD_3"
+  NP_4 = "NUMPAD_4"
+  NP_5 = "NUMPAD_5"
+  NP_6 = "NUMPAD_6"
+  NP_7 = "NUMPAD_7"
+  NP_8 = "NUMPAD_8"
+  NP_9 = "NUMPAD_9"
+  NP_DEC = "NUMPAD_DECIMAL"
+  NP_DIV = "NUMPAD_DIVIDE"
+  NP_MUL = "NUMPAD_MULTIPLY"
+  NP_SUB = "NUMPAD_SUBTRACT"
+  NP_ADD = "NUMPAD_ADD"
+  NP_ENTER = "NUMPAD_ENTER"
+
+  GP_LEFT = "LEFT"
+  GP_RIGHT = "RIGHT"
+  GP_UP = "UP"
+  GP_DOWN = "DOWN"
+  GP_A = "A"
+  GP_B = "B"
+  GP_X = "X"
+  GP_Y = "Y"
+  GP_VIEW = "VIEW"
+  GP_MENU = "MENU"
+  GP_LB = "LB"
+  GP_RB = "RB"
+  GP_LT = "LT"
+  GP_RT = "RT"
+  GP_LSL = "LEFT_STICK_LEFT"
+  GP_LSR = "LEFT_STICK_RIGHT"
+  GP_LSU = "LEFT_STICK_UP"
+  GP_LSD = "LEFT_STICK_DOWN"
+  // TODO: is the right stick supported? It doesn't work on my gamepad
+  GP_RSL = "RIGHT_STICK_LEFT"
+  GP_RSR = "RIGHT_STICK_RIGHT"
+  GP_RSU = "RIGHT_STICK_UP"
+  GP_RSD = "RIGHT_STICK_DOWN"
+
+  MOUSE1 = "left"
+  MOUSE2 = "right"
+  MOUSE3 = "middle"
+end
+
+__im.update_mouse = function()
+  mouse.any_pressed = mouse.press
+  mouse.any_released = mouse.release
+  mouse.any_down = mouse.pressed
+  
+  // printt(mouse.any_pressed, mouse.any_released, mouse.any_down)
+  
+  mouse.release = object
+    left   = mouse.last_left and not mouse.left
+    right  = mouse.last_right and not mouse.right
+    middle = mouse.last_middle and not mouse.middle
+  end
+  
+  mouse.press = object
+    left   = mouse.left and not mouse.last_left
+    right  = mouse.right and not mouse.last_right
+    middle = mouse.middle and not mouse.last_middle
+  end
+  
+  mouse.rel_x = mouse.x - mouse.last_x
+  mouse.rel_y = mouse.y - mouse.last_y
+  
+  mouse.last_x = mouse.x
+  mouse.last_y = mouse.y
+  mouse.last_left   = mouse.left
+  mouse.last_right  = mouse.right
+  mouse.last_middle = mouse.middle
+end
+
+
+__im.new_action = function(id)
+  local action = object
+    id    = id 
+    keyb  = []
+    gpad  = []
+    mouse = []
+  end
+  this.actions[id] = action
+  return action
+end
+
+
+__im.check_key_conversion = function(key)
+  if not this.key_conversion_map[key] then return key end
+  return this.key_conversion_map[key]
+end
+
+
+__im.get_corrected_bind = function(bind) 
+	
+  local input_type = 0 
+  local keys = bind.split(' ')
+  local key  = keys.pop().toUpperCase()
+  local mods = keys
+  
+  if key.startsWith("GP_") then 
+    input_type = "gpad"
+  elsif key.startsWith("MOUSE") then 
+    input_type = "mouse"
+  else                             
+    input_type = "keyb"
+  end
+  
+  key = this.check_key_conversion(key)
+  return [input_type, key, mods]
+end
+
+
+__im.increase_action_timers = function()
+  for id in this.actions_pressed
+    if this.actions_pressed[id] > 0 then 
+      this.actions_pressed[id] += 1
+    end
+  end
+end
+
+__im.check_action_is_pressed = function(action)
+  if this.actions_pressed[action.id] then return end
+  
+  if this.check_bind_pressed(keyboard, action.keyb) then 
+    this.actions_pressed[action.id] = true
+    return 
+  end
+  if this.check_bind_pressed(gamepad, action.gpad) then  
+    this.actions_pressed[action.id] = true
+    return 
+  end
+  if this.check_mouse_bind_pressed(action.mouse) then   
+    this.actions_pressed[action.id] = true
+    return 
+  end
+end
+
+__im.check_action_is_released = function(action)
+  if not this.actions_pressed[action.id] then return end
+  if this.check_bind_released(keyboard, action.keyb) then 
+    // print("action released: " + action.id)
+    this.actions_pressed[action.id] = false
+    this.actions_released[action.id] = true
+    return
+  end
+  if this.check_bind_released(gamepad, action.gpad) then  
+    this.actions_pressed[action.id] = false
+    this.actions_released[action.id] = true
+    return
+  end
+  if this.check_mouse_bind_released(action.mouse) then  
+    this.actions_pressed[action.id] = false
+    this.actions_released[action.id] = true
+    return
+  end
+end
+
+
+
+__im._check_mod_pressed = function(bind, lmod, rmod)
+	if bind.mods[lmod] and bind.mods[rmod] then
+		if not (keyboard[lmod] or keyboard[rmod]) then
+			return false
+		end
+	elsif bind.mods[lmod] then
+		if not keyboard[lmod] then return false end
+		if keyboard[rmod] then return false end
+	elsif bind.mods[rmod] then
+		if not keyboard[rmod] then return false end
+		if keyboard[lmod] then return false end
+	else
+    if lmod != bind.key and keyboard[lmod]
+    or rmod != bind.key and keyboard[rmod]
+		then
+  	  return false
+		end
+	end
+	return true
+end
+
+
+__im.all_mods_pressed = function(bind)
+  local mods_ok = true
+  if not this.is_ctrl_key[bind.key] and not this._check_mod_pressed(bind, 'CONTROL_LEFT',  'CONTROL_RIGHT') then mods_ok = false end
+  if not this.is_shift_key[bind.key] and not this._check_mod_pressed(bind, 'SHIFT_LEFT',  'SHIFT_RIGHT') then mods_ok = false end
+  if not this.is_alt_key[bind.key] and not this._check_mod_pressed(bind, 'ALT_LEFT',  'ALT_RIGHT') then mods_ok = false end
+  return mods_ok
+end
+
+
+__im.check_mod_released = function(bind, lmod, rmod)
+	if bind.mods[lmod] and bind.mods[rmod] then
+		if keyboard.released[lmod] or keyboard.released[rmod] then
+			return true
+		end
+	elsif bind.mods[lmod] then
+		if keyboard.release[lmod] then return true end
+	elsif bind.mods[rmod] then
+		if keyboard.release[rmod] then return true end
+	end
+	return false
+end
+
+
+__im.any_mod_released = function(bind)
+  if this.check_mod_released(bind, 'CONTROL_LEFT',  'CONTROL_RIGHT') then return true end
+  if this.check_mod_released(bind, 'SHIFT_LEFT',  'SHIFT_RIGHT') then return true end
+  if this.check_mod_released(bind, 'ALT_LEFT',  'ALT_RIGHT') then return true end
+  return false
+end
+
+__im.check_bind_pressed = function(input, binds) 
+  for bind in binds
+    if input.press[bind.key] and this.all_mods_pressed(bind) then 
+      return true 
+    end
+  end
+  
+  return false
+end
+
+__im.check_bind_released = function(input, binds) 
+  for bind in binds
+    // TODO: 'any_mod_released' always returns false for some reason
+    local mod_released = this.any_mod_released(bind)
+    if input.release[bind.key] or mod_released then 
+      return true 
+    end
+  end
+  
+  return false
+end
+
+__im.check_mouse_bind_pressed = function(binds)
+  for bind in binds 
+    if mouse.press[bind.key] and this.all_mods_pressed(bind) then
+      return true
+    end
+  end
+  return false
+end
+
+
+__im.check_mouse_bind_released = function(binds)
+  for bind in binds
+    // TODO: 'any_mod_released' always returns false for some reason
+    local mod_released = this.any_mod_released(bind)
+    if mouse.release[bind.key] or mod_released then 
+      return true 
+    end
+  end
+  return false
+end
+
+
+end()
+
+
+
+// file: lib/skaruts/printf/format.ms
+function()
+
+/*
+  
+  String format / print v0.8b
+
+  
+    Functions
+    
+      fmt( string, list )
+      printf( string, list )
+      printc( list, int )
+    
+    
+    Format hints:
+      
+      %s  - converts anything to string
+      %d  - integer (if it's float, gets floored; if not number, gets 'NAN')
+      %o  - parse object (if value is an object, otherwise act like %s)
+      %f  - float, but acts like '%s' due to no precision given
+      %#f - float where '#' is a number specifying the precision (no dots)
+      
+*/
+
+
+// TODO: would be nice to convert number strings, but I can't tell 
+// when 'arg' is not a valid number string, because there's no 'nil' 
+// So NAN is given when not number, so that hopefully the bugs/errors 
+// caused by it are easier to catch than they would if 'Number.parse' would
+// return 0 or some different number.
+
+
+
+
+___fmt___ = object
+  // helper lookup tables
+  // TODO: test if using table is faster than using strings for LUTs
+  VALID = ['s', 'd', 'f', 'o', '0', '1', '2', '3', '4', '5', '6', '7', '8', '9']
+  DIGITS = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9']
+  
+  // used to replace escaped or invalid '%'s, to mark where they are
+  // because 'indexOf' always finds the first occurrence
+  TEMP = "__(@^€!$~@]__"  // (just an unlikely pattern to exist in any string)
+  
+  // truncate floats
+  ftrunc = function(val, num_decimals)
+    return round(val*10^num_decimals)/10^num_decimals
+  end
+  
+  is_float = function(num)
+    // return num-floor(num) > 0
+    return num % 1 != 0
+  end
+  // parse objects, recursively, and expand their properties
+  // 'obj.__str' should be an instance function that returns 
+  // a string representing the object
+  parse_obj = function(obj, level=0)
+    if obj.__str then return obj.__str() end
+    // and obj.__str.type == "function" then return obj.__str() end
+  
+    local indent = ""
+    local fields_str = ""
+    
+    for k in obj
+      local v = obj[k]
+      
+      indent = "  "
+      for i=0 to level-1 by 1 
+        indent += "  " 
+      end
+      
+      if v.type == "object" and k != "class" then 
+        v = this.parse_obj(v, level+1) 
+      end
+      
+      fields_str += indent + k + " = " + v + "\n"
+    end
+    
+    indent = ""
+    for i=0 to level-1 by 1 
+      indent += "  " 
+    end
+    
+    local out_str = "object\n" + fields_str + indent + "end"
+    
+    return level == 0
+       and indent + out_str
+        or out_str
+  end
+end
+
+fmt = function(str, args)
+  if args.type != "list" or args.length == 0 then return str end
+  local index = str.indexOf('%')
+  local i = 0
+
+  // local j = 0  // temp safety
+  while index != -1 //and j < 100
+    // j += 1
+    local ch = str.substring(index+1, min(index+2, str.length))
+    
+    // if '%' is escaped, continue
+    if str.substring(index-1, index, str.length) == '\\' then
+      str = str.substring(0, index-1) + str.substring(index, str.length)
+      str = str.replace('%', ___fmt___.TEMP)
+      index = str.indexOf('%')
+      continue
+    end
+    
+    if ___fmt___.VALID.contains(ch) then
+      local arg = args[i]
+      
+      // not a float or no precision specified
+      if not ___fmt___.DIGITS.contains(ch) then
+        if    ch == 'd' then
+          arg = if arg.type == "number" then floor(arg) else "NAN" end
+        
+        elsif ch == 'f' then
+          arg = if arg.type == "number" then arg else "NAN" end
+        
+        elsif ch == 'o'and arg.type == "object" then
+          arg = ___fmt___.parse_obj(arg)
+        
+        end
+        
+        str = str.replace("%" + ch, arg)
+      
+      // it's a float with precision
+      else
+        if arg.type != "number" then
+          str = str.replace("%" + ch, "NAN")
+        else
+          local tmp = str.substring(index+1, str.length)
+          local ending = tmp.indexOf('f')
+          
+          if ending < 0 then
+            str = str.replace('%', ___fmt___.TEMP)
+            index = str.indexOf('%')
+            continue
+          end
+          tmp = tmp.substring(0, ending+1)
+          
+          local prec = Number.parse(tmp.substring(0, ending))
+          str = str.replace('%'+tmp, ___fmt___.ftrunc(arg, prec))
+        end
+      end
+      
+      index = str.indexOf('%')
+      i += 1
+    else
+      str = str.replace('%', ___fmt___.TEMP)
+      index = str.indexOf('%')
+    end
+    // print(j + " | " + str)
+  end
+  
+  
+  // j = 0  // temp safety
+  while true// and j < 100
+    // j += 1
+    local idx = str.indexOf(___fmt___.TEMP)
+    if idx < 0 then break end
+    str = str.replace(___fmt___.TEMP, '%')
+  end
+  
+  return str
+end
+
+
+printf = function(str, args)
+  print( fmt(str, args) )
+end
+
+
+printc = function(args, floatp=2)
+  local str = ""
+  floatp = "%" + floatp + "f"
+  
+  for i=0 to args.length-1 by 1
+    local hint = "%s"
+    local arg = args[i]
+    
+    if arg.type == "number"
+    and ___fmt___.is_float(arg) then
+      hint = floatp
+    end
+
+    if i != args.length-1 then hint += ", " end
+    
+    str += hint
+    
+    // if the current value is an object/class that has an '__str' 
+    // method, use it and replace it with its resulting string
+    if arg.__str then args[i] = arg.__str() end
+  end
+  
+  printf(str, args)
+end
+
+
+end()
+
+
+
+// file: lib/skaruts/vector2/vector2.ms
+function()
+/*
+    
+        Vector2 v0.8.1
+  
+*/
+
+DEG2RAD = PI/180    // multiply degrees by DEG2RAD to convert to radians
+RAD2DEG = 180/PI    // multiply randians by RAD2DEG to convert to degrees
+
+
+Vector2 = class
+  __type = "vector2"  // personal convention from lua
+  constructor = function(x, y)
+    if x.type == "list" then   // only x given as list
+      this.x = x[0]
+      this.y = x[1]
+    elsif x.type == "object" then // only x given as object (another vec)
+      this.x = x.x
+      this.y = x.y
+    else
+      this.x = x
+      this.y = y
+    end
+  end
+  
+  __str = function()
+    return "(" 
+         + this.x + ", "
+         + this.y + ")"
+  end
+  
+  '+' = function(a, b) 
+    return b.type != "number" 
+       and new Vector2(a.x + b.x, a.y + b.y)
+        or new Vector2(a.x + b, a.y + b)
+  end
+  
+  "-" = function( a, b )
+    if a.type == "object" then
+      return new Vector2( a.x-b.x, a.y-b.y, a.z-b.z )
+    elsif b.type == "number" then 
+      return new Vector2(a.x - b, a.y - b)
+    else
+      return new Vector2( -b.x, -b.y, -b.z )
+    end
+  end
+
+  '/' = function(a, b)
+    return b.type != "number" 
+       and new Vector2(a.x / b.x, a.y / b.y)
+        or new Vector2(a.x / b, a.y / b)
+  end
+  
+  '*' = function(a, b)
+    return b.type != "number" 
+       and new Vector2(a.x * b.x, a.y * b.y)
+        or new Vector2(a.x * b, a.y * b)
+  end
+  
+  equals = function(b) 
+    return this.x == b.x and this.y == b.y 
+  end
+end
+
+
+
+
+// I like to use this function to make vectors because I'm lazy :)
+vec = function(x, y) 
+  return new Vector2(x, y) 
+end
+
+
+
+
+Vector2.length = function()
+	return sqrt(this.x*this.x + this.y*this.y)
+end
+Vector2.magnitude = Vector2.length
+Vector2.size = Vector2.length
+
+
+Vector2.dot = function(o)
+	return this.x*o.x + this.y*o.y
+end
+
+
+// Vector2.cross = function(o)
+  // TODO
+// end
+
+
+Vector2.dist = function(o)
+	return sqrt((this.x-o.x)*(this.x-o.x) + (this.y-o.y)*(this.y-o.y))
+end
+
+
+// square distance
+Vector2.sdist = function(o) 
+	return (this.x-o.x)*(this.x-o.x) + (this.y-o.y)*(this.y-o.y)
+end
+
+
+Vector2.pow = function(o)
+	if type(o) == "number" then
+		if o == 2 then new Vector2(this.x*this.x, this.y*this.y) end  // TODO: is this worth it?
+		return new Vector2(this.x^o, this.y^o)
+	end
+	return new Vector2(this.x ^ o.x, this.y ^ o.y)
+end
+
+
+
+Vector2.angle_to = function(o)
+  return (o-this).angle()
+end
+Vector2.angle_deg_to = function(o)
+  return (o-this).angle_deg()
+end
+
+
+
+Vector2.angle = function()
+	return atan2(this.y, this.x)
+end
+Vector2.angle_deg = function()
+	return atan2d(this.y, this.x)
+end
+Vector2.rotation = Vector2.angle
+Vector2.rotation_deg = Vector2.angle_deg
+
+
+
+Vector2.negate = function()
+	this.x = -this.x
+	this.y = -this.y
+end
+Vector2.negated = function()
+	return new Vector2(-this.x, -this.y)
+end
+
+
+
+Vector2.abs = function()
+	this.x = abs(this.x)
+	this.y = abs(this.y)
+end
+Vector2.absed = function()
+	return new Vector2(abs(this.x), abs(this.y))
+end
+
+
+
+
+Vector2.clamp = function(mn, mx) // 2 vector args
+  if mn.type == "number" then
+    this.x = max(mn, min(this.x, mx))
+		this.y = max(mn, min(this.y, mx))
+  else
+  	this.x = max(mn.x, min(this.x, mx.x))
+  	this.y = max(mn.y, min(this.y, mx.y))
+	end
+end
+Vector2.clamped = function(mn, mx) // 2 vector args
+  if mn.type == "number" then
+    return new Vector2(
+      max(mn, min(this.x, mx)),
+		  max(mn, min(this.y, mx))
+    )
+  end
+	return new Vector2(
+		max(mn.x, min(this.x, mx.x)),
+		max(mn.y, min(this.y, mx.y))
+	)
+end
+
+
+
+Vector2.floor = function()
+	this.x = floor(this.x)
+	this.y = floor(this.y)
+end
+
+Vector2.floored = function()
+	return new Vector2(floor(this.x), floor(this.y))
+end
+
+
+
+Vector2.ceil = function()
+	this.x = ceil(this.x)
+	this.y = ceil(this.y)
+end
+Vector2.ceiled = function()
+	return new Vector2(ceil(this.x), ceil(this.y))
+end
+
+
+
+Vector2.round = function()
+	this.x = round(this.x)
+	this.y = round(this.y)
+end
+Vector2.rounded = function()
+	return new Vector2(round(this.x), round(this.y))
+end
+
+
+
+Vector2.normalize = function()
+  local len = sqrt(this.x*this.x + this.y*this.y)
+  this.x = this.x/len
+  this.y = this.y/len
+end
+Vector2.normalized = function()
+  local len = sqrt(this.x*this.x + this.y*this.y)
+	return new Vector2(this.x/len, this.y/len)
+end
+
+
+
+Vector2.rotate = function(degs)
+  local x = this.x
+  local y = this.y
+  this.x = cos(degs)*x - sin(degs)*y
+  this.y = sin(degs)*x + cos(degs)*y
+end
+Vector2.rotated = function(rads)
+  return new Vector2(
+    cos(rads)*this.x - sin(rads)*this.y
+    sin(rads)*this.x + cos(rads)*this.y
+  )
+end
+
+Vector2.rotate_deg = function(degs)
+  local x = this.x
+  local y = this.y
+  this.x = cosd(degs)*x - sind(degs)*y
+  this.y = sind(degs)*x + cosd(degs)*y
+end
+Vector2.rotated_deg = function(degs)
+  return new Vector2(
+    cosd(degs)*this.x - sind(degs)*this.y
+    sind(degs)*this.x + cosd(degs)*this.y
+  )
+end
+
+
+// camelCase version of the API, for consistency with the engine's
+Vector2.angleTo = Vector2.angle_to
+Vector2.angleDegTo = Vector2.angle_deg_to
+Vector2.rotationDeg = Vector2.angle_deg
+Vector2.angleDeg = Vector2.angle_deg
+Vector2.rotateDeg = Vector2.rotate_deg
+Vector2.rotatedDeg = Vector2.rotated_deg
+
+
+
+
+
+
+
+
+
+
+// tests
+if 0 then 
+  local a = new Vector2(0, 0)
+  local b = new Vector2(-1, -1)
+  
+  
+  print(a.dist(b))  
+end
+end()
+
+
+
+// file: main.ms
+function()
+
+
+init = function()
+  level_ended = true
+  
+  // print (sprites["gui/shotgun"])
+  // init_mouse_lock()
+  init_settings()
+  init_maps()
+  
+  game_maps = [
+    // maps["test"],
+    maps["map2"],
+    maps["map3"],
+  ]
+  map_index = 1 
+  
+ 
+  
+  
+  // map = new GameMap(maps["map2"])
+  // local spawn = map.get_spawn_pos()
+  // if spawn then 
+  //   player = new Player(spawn.x, spawn.y, spawn.dir)
+  // else
+  //   player = new Player(5, 5)
+  // end
+  // set_mouse_visibility(not use_mouse)
+  
+  // init_floor_casting()
+end
+
+
+
+end_level = function()
+  print("level_ending")
+  level_ended = true
+  map_index = wrap(map_index+1, 0, game_maps.length)
+end
+
+
+update = function()
+  // system.pause()
+  // dt_update()
+  debug.update()
+  input.update()
+  
+  	
+  debug.print("fps", system.fps)
+  // debug.print("dt", system.dt, 3)
+  // debug.print("real fps", floor(1/system.dt))
+
+
+  if level_ended then
+    // map = new GameMap(maps["map2"])
+    map = new GameMap(game_maps[map_index].clone())
+    local spawn = map.get_spawn_pos()
+    if spawn then 
+      player = new Player(spawn.x, spawn.y, spawn.dir)
+    // else
+    //   player = new Player(5, 5)
+    end
+    
+    level_ended = false
+    return
+  end
+  
+  
+  player.update()
+  
+  
+  img_buffer.clear("#000")
+  if not draw_3d then
+    map.draw2d(img_buffer)
+  end
+  
+  cast_rays(img_buffer)
+end
+
+
+
+
+draw = function()
+  screen.clear()
+  screen.drawSprite("sprite2", 0, 0, 100, 100)
+  if draw_3d then
+    
+    render_floor_and_ceiling()
+    
+    // THIS SLOWS THE GAME TO A FRAME PER CENTURY
+    // do_floor_ceil_casting(img_buffer)
+    
+    
+    get_objects_to_render(img_buffer)
+    render_game_objects(img_buffer)
+    
+    player.draw(img_buffer)
+  else
+    player.draw2d(img_buffer)
+  end
+  
+  
+  
+  screen.drawSprite(img_buffer, 0, 0, 200*RW/RH, 200) 
+  // screen.drawSprite(img_buffer, 0, 0, SW, SH) 
+  //   screen.width,
+  //   screen.height
+  // )
+  
+  if not mouse.locked then
+  	screen.drawTextOutline("Click mouse to enable controls", 0, 0, 15, "#000")
+  	screen.drawText("Click mouse to enable controls", 0, 0, 15, "#fff")
+  end
+  
+  debug.line(0,screen.height, 0, -screen.height, "#eee")
+  // debug.point(mouse.x, mouse.y, 5, "#fff")
+
+  debug.draw()
+  dt_update()
+end
+end()
+
+
+
+// file: map.ms
+function()
+GameMap = class
+  constructor = function(map)
+    this.spawn = 0
+    this.tiles = map
+    this.w = map.width
+    this.h = map.height
+    this.entities = []
+    // printc([map.width, map.height])
+    this.exits = []
+    this.sky = this.get_tile(0,0)
+    this.floor = this.get_tile(map.width-1,map.height-1)
+    
+    // get spawn position
+    // TODO: place map objects (and move this loop elsweyr)  
+    for j=0 to map.height by 1
+      for i=0 to map.width by 1
+        
+        local tile = map.get(i, j)
+        
+        if tile != 0 then
+          if tile.startsWith("specials/spawn") then
+            this.set_spawn(i, j, tile)
+          elsif tile.startsWith("sprites/exit") then
+            this.set_exit(i, j, tile)
+          elsif tile.startsWith("sprites/candle") then 
+            // print("found candle")
+            this.entities.push(new SpriteObj("sprites/candle", i, j, 1, 0.0))
+            this.tiles.set(i, j, 0)
+          elsif tile.startsWith("sprites/anim_candle") then
+            // print("found candle")
+            this.entities.push(new SpriteObj("sprites/anim_candle", i, j, 1, 0.0))
+            this.tiles.set(i, j, 0)
+          end
+        end
+      end
+    end
+  end
+  
+  set_spawn = function(x, y, tile)
+    if this.spawn then return end
+    
+    local coords = "0,0"
+    
+    local colon = tile.indexOf(":")
+    if colon != -1 then 
+      coords = tile.substring(colon+1)
+    end
+    
+    // print("coords: " + coords)
+    this.spawn = object
+      x = x
+      y = y
+      dir = coords == "0,0" and deg2rad(90)
+         or coords == "1,0" and 0
+         or coords == "1,1" and deg2rad(-90)
+         or coords == "0,1" and deg2rad(180)
+    end
+    
+    this.tiles.set(x, y, 0)
+  end
+  
+  set_exit = function(x, y, tile)
+    this.exits.push(object
+      x = x
+      y = y
+    end)
+    // this.tiles.set(x, y, 0)
+  end
+  
+  is_exit = function(x, y)
+    
+    for exit in this.exits
+      if exit.x == floor(x) and exit.y == floor(y) then return true end
+    end
+    return false
+  end
+  
+  is_wall = function(x, y)
+    return this.tiles.get(floor(x), floor(y)) != 0
+    // return this.tiles[floor(y)][floor(x)] != 0
+  end
+  
+  get_tile = function(x, y)
+    local name = this.tiles.get(floor(x), floor(y))
+    if not name then return 0 end
+    
+    local colon = name.indexOf(":")
+    if colon == -1 then return name end
+    
+    return name.substring(0, colon)
+  end
+  
+  draw2d = function(target)
+    // TODO: center the drawing on the player
+    for j=0 to this.h-1 by 1
+      for i=0 to this.w-1 by 1
+        local tile = this.tiles.get(i, j)
+        if tile != 0 then
+          local x = (i*TS)
+          local y = (j*TS)
+          // target.drawRect(x, y, TS, TS, "#eee")
+          target.drawSprite(tile, x, y, TS, TS)
+        end
+      end
+    end
+  end
+  
+  get_spawn_pos = function()
+    // for j=0 to this.h-1 by 1
+    //   for i=0 to this.w-1 by 1
+    //     local tile = this.tiles[j][i]
+    //     if tile == 9 then 
+    //       this.tiles[j][i] = 0
+    //       return vec(i, j) 
+    //     end
+    //   end
+    // end
+    return this.spawn
+  end
+end
+
+
+init_maps = function()
+  // _ = false
+  
+  // map1 = [
+  //   [1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1],
+  //   [1,_,_,_,_,1,_,_,_,_,_,_,_,_,_,_,_,_,_,1],
+  //   [1,_,_,_,_,1,_,_,_,_,_,_,1,1,_,_,_,_,_,1],
+  //   [1,_,_,_,_,1,_,_,_,_,_,_,_,1,_,_,_,_,_,1],
+  //   [1,1,1,_,1,1,1,1,1,1,1,_,_,_,_,_,_,_,_,1],
+  //   [1,9,_,_,_,_,_,_,_,_,1,_,_,_,_,_,_,_,_,1],
+  //   [1,_,_,_,_,_,_,_,_,_,1,_,_,_,_,_,_,_,_,1],
+  //   [1,_,1,1,1,1,1,1,_,_,1,_,_,_,_,_,_,_,_,1],
+  //   [1,_,1,_,_,_,_,1,_,_,1,_,_,_,_,_,_,_,_,1],
+  //   [1,_,1,1,_,_,_,1,_,_,1,_,_,_,_,_,_,_,_,1],
+  //   [1,_,_,1,_,_,_,1,_,_,1,_,_,_,_,_,_,_,_,1],
+  //   [1,1,_,_,1,1,_,1,_,_,1,_,_,_,_,_,_,_,_,1],
+  //   [1,_,1,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,1],
+  //   [1,_,1,1,1,1,1,1,_,_,_,_,_,_,_,_,_,_,_,1],
+  //   [1,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,1],
+  //   [1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1],
+  // ]
+  
+  // map = maps["map2"]
+  // printf("cell: %s", [map.get(6, 1)])
+  
+  
+  
+  
+  
+end
+end()
+
+
+
+// file: player.ms
+function()
+spinning = false
+
+Player = class
+  constructor = function(x, y, dir=0)
+    this.x = x + 0.5 // 1.5
+    this.y = y + 0.5 // 5
+    this.rot = fmod(dir, 2*PI)
+    this.rot_speed = 0
+    this.max_rot_speed = 4
+    this.speed = 1.35
+    this.target_rot = 'nil'
+    this.weapon = new Shotgun()
+  end
+  
+  // get_pos = function()
+  //   return vec(this.x, this.y)
+  // end
+  
+  // get_map_pos = function()
+  //   return this.get_pos().floored()
+  // end
+
+  movement = function()
+    local sin_a = sin(this.rot)
+    local cos_a = cos(this.rot)
+    local dx = 0
+    local dy = 0
+    
+    local speed = this.speed * system.dt
+    local speed_sin = speed * sin_a
+    local speed_cos = speed * cos_a
+    
+    if mouse.locked then
+      if input.action_pressed("shoot") then
+        this.weapon.shoot()
+      end
+      
+      if input.action_down("move_forward") then
+        dx += speed_cos
+        dy += speed_sin
+      end
+      
+      if input.action_down("move_backward") then
+        dx += -speed_cos
+        dy += -speed_sin
+      end
+      print(input.action_down("move_left"))
+      
+      if input.action_down("move_left") then
+        dx += speed_sin
+        dy += -speed_cos
+      end
+      
+      if input.action_down("move_right") then
+        dx += -speed_sin
+        dy += speed_cos
+      end
+    end
+    
+    // printc([dx, dy])
+    
+    this.check_wall_collision(PLAYER_SCALE/system.dt/1000, dx, dy)
+
+    local turning = false    
+    local turn_rate = 0.06
+    local halt_rate = 0.5
+    
+    if mouse.locked then 
+      if input.action_down("turn_left") then 
+        this.rot_speed = lerp(this.rot_speed, -this.max_rot_speed, turn_rate)
+        turning = true
+      end
+      if input.action_down("turn_right") then
+        this.rot_speed = lerp(this.rot_speed, this.max_rot_speed, turn_rate)
+        turning = true
+      end
+      
+      if input.action_pressed("turn_around") then
+      	// TODO: fix the spinning bug here
+      	
+        // spinning = true
+        // this.target_rot = (this.rot+deg2rad(180))// % (PI*2)
+      end
+    end
+    
+    if not turning then 
+      this.rot_speed = lerp(this.rot_speed, 0, halt_rate)
+    end
+
+    if not spinning then
+      this.rot_speed = clamp(this.rot_speed, -this.max_rot_speed, this.max_rot_speed)
+      this.rot += this.rot_speed * system.dt  
+    else
+      this.rot = lerp(this.rot, this.target_rot, 0.25)
+      
+      if within_range(this.rot, this.target_rot, 0.01) then
+        spinning = false
+        this.rot = this.target_rot
+      end
+    end
+    // printc([this.rot, this.target_rot])    
+  end
+
+  mouse_control = function()
+    // printc(["mouse deltas", mouse_dx, mouse_dy])
+    this.rot += (mouse.relx * MOUSE_SENS * system.dt)// % (2*PI)
+  end
+
+  update = function()
+    this.movement()
+    this.mouse_control()
+    
+    // keep rotation within 360º
+    this.rot = fmod(this.rot, 2*PI)
+    
+    this.weapon.update()
+  end
+  
+  draw = function(draw_target)
+    this.weapon.draw(draw_target)
+  end
+  
+  check_wall_collision = function(scale, dx, dy)
+    
+    if map.is_exit(this.x+dx*scale, this.y+dy*scale) then 
+      end_level()
+      return 
+    end
+    
+    if not map.is_wall(this.x+dx*scale, this.y) then
+      this.x += dx
+    end
+    
+    if not map.is_wall(this.x, this.y+dy*scale) then
+      this.y += dy
+    end
+    
+  end
+    
+  draw2d = function(draw_target)
+    draw_target.drawLine(
+      this.x*TS, this.y*TS, 
+      this.x*TS + map.w*cos(this.rot), 
+      this.y*TS + map.w*sin(this.rot), 
+      "#444"
+    )
+    
+    fill_circle(draw_target, this.x*TS, this.y*TS, 4, "#f00")
+  end
+end
+
+
+within_range = function(a, b, range)
+  return a > b-range and a < b+range 
+end
+end()
+
+
+
+// file: raycasting.ms
+function()
+
+ 
+cast_rays = function(render_target)
+  ray_casting_results = []
+  
+  local ray_angle = player.rot - HALF_FOV + 0.0001
+  local start_ang = player.rot - HALF_FOV + 0.0001
+  
+  local ox = player.x
+  local oy = player.y
+  local x_map = floor(ox)
+  local y_map = floor(oy)
+  
+  local tex_name_hor = 1
+  local tex_name_vert = 1
+  
+  
+  for ray=0 to NUM_RAYS-1 by 1
+    local sin_a = sin(ray_angle)
+    local cos_a = cos(ray_angle)
+    
+    /* 
+          horizontals 
+    */
+    
+    local y_hor = if sin_a > 0 then y_map+1 else y_map-0.000001 end
+    local dy    = if sin_a > 0 then 1       else -1             end
+    
+    local depth_hor = (y_hor - oy) / sin_a
+    local x_hor = ox + depth_hor * cos_a
+    
+    local delta_depth = dy / sin_a
+    local dx = delta_depth * cos_a
+    
+    for i=0 to MAX_DEPTH-1 by 1
+      local tile_hor_x = floor(x_hor) 
+      local tile_hor_y = floor(y_hor) 
+      
+      if map.is_wall(tile_hor_x, tile_hor_y) then 
+        tex_name_hor = map.get_tile(tile_hor_x, tile_hor_y)
+        break
+      end
+      
+      x_hor += dx
+      y_hor += dy
+      depth_hor += delta_depth
+    end
+    
+    /*
+          verticals
+    */
+    
+    // local x_vert = if cos_a > 0 then x_map+1 else x_map-1e-6 end
+    local x_vert = if cos_a > 0 then x_map+1 else x_map-0.000001 end
+    dx           = if cos_a > 0 then 1       else -1             end
+    
+    local depth_vert = (x_vert - ox) / cos_a
+    local y_vert = oy + depth_vert * sin_a
+    
+    delta_depth = dx / cos_a
+    dy = delta_depth * sin_a
+    
+    for i=0 to MAX_DEPTH-1 by 1
+      local tile_vert_x = floor(x_vert)
+      local tile_vert_y = floor(y_vert)
+      
+      if map.is_wall(tile_vert_x, tile_vert_y) then
+        tex_name_vert = map.get_tile(tile_vert_x, tile_vert_y)
+        break 
+      end
+      
+      x_vert += dx
+      y_vert += dy
+      depth_vert += delta_depth
+    end
+    
+    
+    /*
+          wrap up
+    */
+    
+    local depth = 0 // min(depth_vert, depth_hor)
+    local offset = 0
+    local side = 0
+    // local tex_name = ""
+    if depth_vert < depth_hor then
+      side = "v"
+      depth = depth_vert
+      tex_name = tex_name_vert
+      y_vert = mod(y_vert, 1)
+      offset = cos_a > 0 and y_vert or 1-y_vert 
+    else
+      side = "h"
+      depth = depth_hor 
+      tex_name = tex_name_hor
+      x_hor = mod(-x_hor, 1) // use -x_hor to prevent flipped textures
+      offset = sin_a > 0 and x_hor or 1-x_hor 
+    end 
+    
+    
+    // fix for peripheral distortions: don't use fixed angle increments
+    // (https://stackoverflow.com/questions/24173966/raycasting-engine-rendering-creating-slight-distortion-increasing-towards-edges)
+    // and multiply ray by the scale, to allow drawing in different column sizes
+    if fix_distortions then 
+      ray_angle = atan( (ray*SCALE-HALF_W) / SCR_DIST ) + player.rot 
+    else
+      ray_angle += DELTA_ANGLE
+    end
+
+    // remove fish-bowl effect 
+    depth *= cos(player.rot - ray_angle)
+
+
+    // projection
+    local proj_h = SCR_DIST / (depth + 0.0001)
+    
+    
+    // TODO: organize and streamline the following mess
+    
+    // render walls    
+    
+    // color component
+    local ccp = 1 - (1 / (1 + depth ^ 9 * 0.0000010))
+    local color = "rgba(0,0,0," + ccp + ")"
+    local tex_size = sprites[tex_name].width
+    local tex_coords = rect(
+      // floor(offset*(tex_size-SCALE)),
+      floor(offset*(tex_size-(SCALE/tex_size))), // texture coords
+      0,
+      SCALE/tex_size,
+      tex_size,
+    )
+    local scr_coords = rect(
+      ray*SCALE,               // screen coords
+      HALF_H - (proj_h/2),
+      SCALE,
+      proj_h
+    )
+    
+    ray_casting_results.push(object
+      side = side
+      wall = true
+      depth = depth
+      proj_h = proj_h
+      texture = tex_name //"wood" + TEX_SIZE
+      offset = offset
+      
+      color = color
+      tex_coords = tex_coords
+      scr_coords = scr_coords
+    end)
+    
+    // render_wall(render_target, "test" + TEX_SIZE, tex_coords, scr_coords, color)
+    if not draw_3d then
+      draw_debug_ray(render_target, ox, oy, depth, sin_a, cos_a)
+    end
+    
+  end 
+  // print(ray_casting_results.length)
+end
+
+
+end()
+
+
+
+// file: rendering.ms
+function()
+
+render_floor_and_ceiling = function()
+  local floor_color = "#321"
+  local ceil_color = "#111114"
+  // local ceil_color ="rgb(0,0,0)"
+  
+  img_buffer.setBlending("source-atop")  
+
+  img_buffer.setLinearGradient(0, RH/2+20, 0, RH, "#000", floor_color)
+  img_buffer.fillRect(0, RH/2, RW, RH/2)
+  
+  // local x1 = fmod((-player.rot * 320), 320)
+  // local x2 = x1-RW
+  // img_buffer.drawSprite(map.floor, x1, RH/2, RW, RH/2) 
+  // img_buffer.drawSprite(map.floor, x2, RH/2, RW, RH/2)
+  
+  if map.sky then 
+    local x1 = fmod((-player.rot * 320), 320)
+    local x2 = x1-RW
+    img_buffer.drawSprite(map.sky, x1, 0, RW, RH/2) 
+    img_buffer.drawSprite(map.sky, x2, 0, RW, RH/2)
+  elsif map.ceiling then 
+    img_buffer.setLinearGradient(0, 0, 0, RH/2-20, ceil_color, "#000")
+    img_buffer.fillRect(0, 0, RW, RH/2)
+  end
+end
+
+
+
+ray_casting_results = []
+objects_to_render = []
+
+draw_debug_ray = function(render_target, ox, oy, depth, sin_a, cos_a)
+  local tx = ox*TS
+    local ty = oy*TS
+    
+    render_target.drawLine(
+      tx, ty, 
+      tx + depth*TS*cos_a, 
+      ty + depth*TS*sin_a, 
+      "#0f0"
+    )
+end
+
+
+directional_shadow_color = "#0005"
+render_object = function(render_target, obj)
+  local x = obj.scr_coords.x
+  local y = obj.scr_coords.y
+  local w = obj.scr_coords.w
+  local h = obj.scr_coords.h
+  
+  render_target.drawSpritePart(
+    obj.texture,
+    obj.tex_coords.x, obj.tex_coords.y, obj.tex_coords.w, obj.tex_coords.h,
+    x, y, w, h,
+  )
+
+  if not obj.wall then return end 
+
+  // add depth darkness effect
+  render_target.setBlending("source-atop")
+  render_target.fillRect(x, y-1, w, h+2, obj.color)
+
+  if obj.side == "h" then 
+    img_buffer.fillRect(x, y-1, w, h+2, directional_shadow_color)
+  end
+end
+
+render_blank_wall = function(render_target, x, y, w, h, color)
+  render_target.fillRect(x, y, w, h, color)
+end
+
+
+
+
+// textures = game.object_renderer.wall_textures
+
+get_objects_to_render = function(render_target)
+  objects_to_render = []
+  
+  // print(ray_casting_results.length)
+  for ray=0 to ray_casting_results.length-1 by 1
+    local res = ray_casting_results[ray]
+    
+    // if I had issues with getting stuck when touching walls, this is where
+    // I would fix it (in the else clause), according to the tutorial 
+    // at 20:28 (https://www.youtube.com/watch?v=ECqUrT7IdqQ)
+    if res.proj_h < RH then
+      res.wall_pos = vec(ray * SCALE, HALF_H - res.proj_h)
+    else
+      res.wall_pos = vec(ray * SCALE, 0)
+    end
+    
+    objects_to_render.push(res) 
+  end
+  for e in map.entities
+    e.update()
+  end
+end
+// rendr_sort = function(a, b) a.depth < b.depth and -1 or 1 end
+render_game_objects = function(render_target)
+  // for go in objects_to_render
+  //   if go.type == "number" then print("RES IS NUMBER") end
+  // end
+  
+  objects_to_render.sortList(function(a, b) 
+    // print([a, b])
+    return a.depth > b.depth and -1 or 1 
+  end)
+  
+  for obj in objects_to_render
+    render_object(render_target, obj)
+  end
+end
+
+// push_render_object = function(dist, )
+end()
+
+
+
+// file: settings.ms
+function()
+// THE LAST CHANCE 2 IN THIS YEAR!
+end()
+
+
+
+// file: sprite.ms
+function()
+// sprite_buffers = object end
+
+// add_sprite_buffer = function(name, w, h)
+//   if not sprite_buffers[name] then 
+//     sprite_buffers[name] = new Image(w, h)
+//   end
+// end
+
+SpriteObj = class
+  constructor = function(name, x, y, scale=1, shift=0.1)
+    this.x = x + 0.5 
+    this.y = y + 0.5
+    this.sprite = sprites[name]
+    this.w = this.sprite.width
+    this.h = this.sprite.height
+    this.dx = 0
+    this.dy = 0
+    this.theta = 0
+    this.half_w = floor(this.w/2)
+    this.norm_dist = 0
+    this.screen_x = 0
+    this.img_ratio = this.w / this.h
+    this.dist = 0
+    this.scale = scale
+    this.shift = shift
+    
+    // this is used for rendering with darkening effect
+    this.buffer = new Image(this.w, this.h)
+  end
+  
+  // as the name doesn't indicate, this finishes the calculations
+  // started in 'get_sprite'
+  get_sprite_projection = function()
+    local proj_h = SCR_DIST / this.norm_dist * this.scale
+    local proj_w = proj_h * this.img_ratio
+    
+    this.proj_half_w = floor(proj_w/2)
+    local y_shift = proj_h * this.shift
+    local pos_x = this.screen_x - this.proj_half_w 
+    local pos_y = HALF_H - floor(proj_h/2) + y_shift     
+    // printc([pos_x, pos_y])
+    
+    // color component
+    local ccp = 1 - (1 / (1 + this.norm_dist ^ 9 * 0.0000010))
+    local color = fmt("rgba(0,0,0,%s)", [ccp])
+    
+    // coords
+    local tex_coords = rect(0, 0, this.w, this.h)
+    local scr_coords = rect(pos_x, pos_y, proj_w, proj_h)
+    
+    // apply darkening
+    this.buffer.clear("#0000") 
+    this.buffer.drawSprite(this.sprite, 0, 0)
+    this.buffer.setBlending("source-atop")
+    this.buffer.fillRect(0, 0, this.w, this.h, color)
+    
+    objects_to_render.push(object
+      wall = false
+      depth = this.norm_dist
+      proj_h = proj_h
+      texture = this.buffer
+      // offset = offset
+      color = color
+      tex_coords = tex_coords
+      scr_coords = scr_coords
+    end)
+  end
+  
+  // as the name doesn't indicate, this calculates the sprite's
+  // rendering position and scale
+  get_sprite = function()
+    local dx = this.x - player.x
+    local dy = this.y - player.y
+    this.dx = dx
+    this.dy = dy
+    this.theta = atan2(dy, dx)
+    
+    local delta = this.theta - player.rot
+    if (dx > 0 and player.rot > PI)
+    or (dx < 0 and dy < 0) then
+      delta += PI*2
+    end
+    
+    // ray_angle = atan( (ray*SCALE-HALF_W) / SCR_DIST ) + player.rot 
+    // DELTA_ANGLE = FOV / NUM_RAYS
+    local delta_rays = delta / DELTA_ANGLE
+    this.screen_x = (HALF_NUM_RAYS + delta_rays) * SCALE 
+    
+    this.dist = sqrt(dx*dx + dy*dy)
+    this.norm_dist = this.dist * cos(delta)
+    
+    if -this.half_w < this.screen_x < (RW + this.half_w)
+    and this.norm_dist > 0.5 then
+      this.get_sprite_projection()
+    end 
+  end
+  
+  update = function()
+    this.get_sprite()
+    
+  end
+end
+end()
+
+
+
+// file: utils/drawing.ms
+function()
+draw_text_outlined = function(draw_target, text, x, y, size, color, shadow_color="#000")
+  local thickness  = 2      // shadow thickness (more than 3 doesn't realy work)
+  
+  // orthogonals
+  draw_target.drawText(text, x,           y-thickness, size, shadow_color)
+  draw_target.drawText(text, x-thickness, y,           size, shadow_color)
+  draw_target.drawText(text, x+thickness, y,           size, shadow_color)
+  draw_target.drawText(text, x,           y+thickness, size, shadow_color)
+  
+  // diagonals
+  draw_target.drawText(text, x-thickness, y-thickness, size, shadow_color)
+  draw_target.drawText(text, x+thickness, y-thickness, size, shadow_color)
+  draw_target.drawText(text, x-thickness, y+thickness, size, shadow_color)
+  draw_target.drawText(text, x+thickness, y+thickness, size, shadow_color)
+  
+  draw_target.drawText(text, x, y, size, "#fff")
+end
+
+
+
+// for when drawing on images (top-left origin)
+
+draw_circle = function(draw_target, x, y, rad, color)
+  draw_target.drawRound(x-rad, y-rad, rad*2, rad*2, color)
+end
+
+fill_circle = function(draw_target, x, y, rad, color)
+  draw_target.fillRound(x-rad, y-rad, rad*2, rad*2, color)
+end
+end()
+
+
+
+// file: utils/list_utils.ms
+function()
+// a half-assed deepcopy function 
+// it's just good enough for the cave generation algorithm
+List.deepcopy = function(array)
+  local w = array[0].length
+  local h = array.length
+  
+  local out = []
+  for j=0 to h-1 by 1
+    out.push( [] + array[j] )
+  end
+  return out
+end
+
+
+// prints out a 1D array as a 2D grid
+List.print1d = function(arr, w, h)
+  local str = ""
+  for j=0 to h-1 by 1
+    for i=0 to w-1 by 1
+      str += arr[i+j*w]
+    end
+    str+='\n'
+  end
+  print(str)
+end
+
+
+// prints out a 2D array as a 2D grid
+List.print2d = function(arr, w, h)
+  // local w = array[0].length
+  // local h = array.length
+  local str = "\n"
+  
+  for j=0 to h-1 by 1
+    for i=0 to w-1 by 1
+      str += arr[j][i] + ' '
+    end
+    str+='\n'
+  end
+  
+  print(str)
+end
+
+
+
+// create a new 1D array, filled with 'def_val'
+// 'def_val' can also be a function that returns the intended value
+List.new_1d = function(len, def_val)
+  local list = []
+  if def_val.type == "function" then 
+    local func = def_val
+    for i=0 to len-1 by 1
+      list.push( func() )
+    end
+  else
+    for i=0 to len-1 by 1
+      list.push( def_val )
+    end
+  end
+  return list
+end
+
+
+// create a new 2D array, filled with 'def_val'
+// 'def_val' can also be a function that returns the intended value
+List.new_2d = function(w, h, def_val)
+  local list = []
+  if def_val.type == "function" then 
+    local func = def_val
+    for j=0 to h-1 by 1
+      list.push([])
+      for i=0 to w-1 by 1
+        list[j].push( func() )
+      end
+    end
+  else
+    for j=0 to h-1 by 1
+      list.push([])
+      for i=0 to w-1 by 1
+        list[j].push( def_val )
+      end
+    end
+  end
+  return list
+end
+
+// return a random element from the list 'l'
+List.rand = function(l)
+  return l[ random.nextInt(l.length) ]
+end
+end()
+
+
+
+// file: utils/math.ms
+function()
+mod = function(x, y)
+  pos = x - y*floor(x / y)
+end
+
+
+fmod = function(x,y)
+  local i = floor(x/y)
+  return x-i*y
+end
+
+ease_in = function(a, b, percent)
+  return a + (b-a) * pow(percent, 2)
+end
+
+ease_out = function(a, b, percent)
+  return a + (b-a) * (1-pow(1-percent, 2))
+end
+
+ease_in_out = function(a, b, percent)
+  return a + (b-a) * ((-cos(percent*PI)/2.0) + 0.5)
+end
+
+wrap = function(val, low, high)
+	if val >= high then return low + (val-high) end
+	if val < low then return high - (low-val) end
+	return val
+end
+
+clamp = function(val, min, max)
+  return if val > max then max elsif val < min then min else val end
+end
+
+percent_remaining = function(n, total)
+	return (n%total) / total
+end
+
+lerp = function(a, b, percent)
+	return a + (b-a) * percent
+end
+
+deg2rad = function(deg) return deg * PI/180 end
+rad2deg = function(rad) return rad * 180/PI end
+
+// truncate floats
+ftrunc = function(val, digit)
+  return round(val*10^digit)/10^digit
+end
+end()
+
+
+
+// file: utils/time_stuff.ms
+function()
+
+t1 = system.time()/1000
+dt = 0  // delta time
+f = -1
+// call inside update, before everything else
+t_update = function()
+  f += 1
+  local t2 = system.time()/1000
+  dt = t2-t1
+  t1 = t2
+end
+end()
+
+
+
+// file: weapon.ms
+function()
+Weapon = class
+  constructor = function(sprite, sound, scale=0.4)
+    this.spr_idle = sprite + ".0"
+    this.spr_shooting = sprite
+    
+    this.sound = sound
+    this.x = HALF_W - floor(sprites[sprite].width/2*scale)
+    this.y = RH - floor(sprites[sprite].height*scale)
+    this.shooting = false
+    this.scale = scale
+  end
+  
+  draw = function(draw_target)
+    local spr = not this.shooting and this.spr_idle or this.spr_shooting
+    // print(sprites[this.spr_shooting])
+    local w = sprites[this.spr_shooting].width
+    local h = sprites[this.spr_shooting].height
+    draw_target.drawSprite(spr, this.x, this.y, w*this.scale, h*this.scale)
+  end
+  
+  update = function()
+    if this.shooting then
+      local spr = sprites[this.spr_shooting]
+      if spr.getFrame() == spr.frames.length-1 then
+        this.shooting = false 
+      end
+    end
+  end
+  
+  shoot = function()
+    if this.shooting then return end
+    this.shooting = true
+    sprites[this.spr_shooting].setFrame(0)
+    audio.playSound(this.sound)//, volume, pitch, pan, loop )
+  end
+end
+
+
+
+// TODO: this could just be a function
+Shotgun = class extends Weapon
+  constructor = function()
+    super("gui/shotgun", "shotgun", SS)
+    sprites["gui/shotgun"].fps = 7
+  end
+end
+end()
+
+
+</script></html>
